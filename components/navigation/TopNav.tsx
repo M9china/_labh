@@ -5,6 +5,7 @@ import { TOPNAVDATA } from "./NavStatic";
 import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import { Dialog } from "@headlessui/react";
 import { usePathname } from "next/navigation";
+import { IoMdHeartEmpty } from "react-icons/io";
 import Image from "next/image";
 
 export const TopNav = () => {
@@ -12,7 +13,7 @@ export const TopNav = () => {
   const pathname = usePathname();
 
   return (
-    <header className="bg-gray-50 sm:py-4 fixed z-50 top-0 sm:w-full w-screen">
+    <header className="bg-gray-50 sm:py-2 fixed z-50 top-0 sm:w-full w-screen">
       <nav
         className="mx-auto flex sm:px-8 items-center justify-between sm:border-b-0 border-b-2"
         aria-label="Global"
@@ -35,15 +36,16 @@ export const TopNav = () => {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {TOPNAVDATA.map((item) => (
+          {TOPNAVDATA.map((item, index) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-lg font-semibold leading-6 text-gray-600 ${
+              className={`text-lg flex items-center font-semibold leading-6 text-gray-600 ${
                 pathname === item.href ? "text-red-900 underline" : ""
               }`}
             >
               {item.name}
+              <span className="">{index === 1 && <IoMdHeartEmpty className="h-6 w-6 ml-1" />}</span>
             </Link>
           ))}
           <Link
