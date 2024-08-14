@@ -1,10 +1,8 @@
 import { INavigation  } from "./NavigationDto";
 
 export const TOPNAVDATA: INavigation [] = [
-    { name: 'Home', href: '/' },
-    { name: 'Curriculum', href: '/curriculum' },
-    { name: 'Info for Parents', href: '/info-for-parents' },
-    { name: 'Wall of Fame', href: '/wall-of-fame' },
+    {  href: '/' },
+    { name: 'Wishlist', href: '/my-orders' }
 ]
 
 export const FOOTERDATA = {
