@@ -1,6 +1,6 @@
 
     export declare interface INavigation {
-        name: string;
+        name?: string;
         href: string;
     }
     
