@@ -8,7 +8,7 @@ export const products = [
       inStock: true,
       size: "Large",
       imageSrc:
-        "/https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-01.jpg",
+        "/sleeves.jpeg",
       imageAlt: "Front of men's Basic Tee in sienna.",
     },
     {
@@ -21,18 +21,18 @@ export const products = [
       leadTime: "3–4 weeks",
       size: "Large",
       imageSrc:
-        "/https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg",
+        "/tv.jpeg",
       imageAlt: "Front of men's Basic Tee in black.",
     },
     {
       id: 3,
-      name: "Nomad Tumbler",
+      name: "Basic Tee",
       href: "#",
       price: "$35.00",
       color: "White",
       inStock: true,
       imageSrc:
-        "/https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg",
+        "/hats.jpeg",
       imageAlt: "Insulated bottle with white base and black snap lid.",
     },
   ];

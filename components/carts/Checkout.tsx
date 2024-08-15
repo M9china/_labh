@@ -1,4 +1,5 @@
 import { QuestionMarkCircleIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 export const Checkout = () => {
 
@@ -20,20 +21,20 @@ export const Checkout = () => {
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex items-center text-sm text-gray-600">
                   <span>Shipping estimate</span>
-                  <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+                  <Link href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Learn more about how shipping is calculated</span>
                     <QuestionMarkCircleIcon aria-hidden="true" className="h-5 w-5" />
-                  </a>
+                  </Link>
                 </dt>
                 <dd className="text-sm font-medium text-gray-900">$5.00</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex text-sm text-gray-600">
                   <span>Tax estimate</span>
-                  <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
+                  <Link href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Learn more about how tax is calculated</span>
                     <QuestionMarkCircleIcon aria-hidden="true" className="h-5 w-5" />
-                  </a>
+                  </Link>
                 </dt>
                 <dd className="text-sm font-medium text-gray-900">$8.32</dd>
               </div>
@@ -46,7 +47,7 @@ export const Checkout = () => {
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full rounded-md border border-transparent bg-indigo-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                className="w-full rounded-md border border-transparent bg-black px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
                 Checkout
               </button>

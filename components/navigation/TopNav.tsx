@@ -1,10 +1,10 @@
 "use client";
 import {
-  Bars3Icon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
-import { Fragment, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   Dialog,
   DialogBackdrop,
@@ -14,19 +14,17 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-} from "@headlessui/react";
-import { XMarkIcon as XMarkIconOutline } from "@heroicons/react/24/outline";
-import { navigation } from "../navigation";
-import Link from "next/link";
-import Image from "next/image";
+} from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment, useState } from "react";
+import { navigation } from "./NavStatic";
 
 export const TopNav = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="bg-gray-50 sm:py-2 fixed z-50 top-0 sm:w-full w-screen">
-      {/* Mobile menu */}
-      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+       <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
@@ -45,7 +43,7 @@ export const TopNav = () => {
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Close menu</span>
-                <XMarkIconOutline aria-hidden="true" className="h-6 w-6" />
+                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
               </button>
             </div>
 
@@ -65,30 +63,15 @@ export const TopNav = () => {
               </div>
               <TabPanels as={Fragment}>
                 {navigation.categories.map((category) => (
-                  <TabPanel
-                    key={category.name}
-                    className="space-y-10 px-4 pb-8 pt-10"
-                  >
+                  <TabPanel key={category.name} className="space-y-10 px-4 pb-8 pt-10">
                     <div className="grid grid-cols-2 gap-x-4">
                       {category.featured.map((item) => (
                         <div key={item.name} className="group relative text-sm">
                           <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                            <Image
-                            width={1500}
-                            height={1500}
-                              alt={item.imageAlt}
-                              src={item.imageSrc}
-                              className="object-cover object-center"
-                            />
+                            <Image width={1500} height={1500} alt={item.imageAlt} src={item.imageSrc} className="object-cover object-center" />
                           </div>
-                          <Link
-                            href={item.href}
-                            className="mt-6 block font-medium text-gray-900"
-                          >
-                            <span
-                              aria-hidden="true"
-                              className="absolute inset-0 z-10"
-                            />
+                          <Link href={item.href} className="mt-6 block font-medium text-gray-900">
+                            <span aria-hidden="true" className="absolute inset-0 z-10" />
                             {item.name}
                           </Link>
                           <p aria-hidden="true" className="mt-1">
@@ -99,10 +82,7 @@ export const TopNav = () => {
                     </div>
                     {category.sections.map((section) => (
                       <div key={section.name}>
-                        <p
-                          id={`${category.id}-${section.id}-heading-mobile`}
-                          className="font-medium text-gray-900"
-                        >
+                        <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
                           {section.name}
                         </p>
                         <ul
@@ -112,10 +92,7 @@ export const TopNav = () => {
                         >
                           {section.items.map((item) => (
                             <li key={item.name} className="flow-root">
-                              <Link
-                                href={item.href}
-                                className="-m-2 block p-2 text-gray-500"
-                              >
+                              <Link href={item.href} className="-m-2 block p-2 text-gray-500">
                                 {item.name}
                               </Link>
                             </li>
@@ -131,10 +108,7 @@ export const TopNav = () => {
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               {navigation.pages.map((page) => (
                 <div key={page.name} className="flow-root">
-                  <Link
-                    href={page.href}
-                    className="-m-2 block p-2 font-medium text-gray-900"
-                  >
+                  <Link href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                     {page.name}
                   </Link>
                 </div>
@@ -143,18 +117,12 @@ export const TopNav = () => {
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <Link
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
+                <Link href="#" className="-m-2 block p-2 font-medium text-gray-900">
                   Sign in
                 </Link>
               </div>
               <div className="flow-root">
-                <Link
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
+                <Link href="#" className="-m-2 block p-2 font-medium text-gray-900">
                   Create account
                 </Link>
               </div>
@@ -165,26 +133,16 @@ export const TopNav = () => {
       <nav aria-label="Top" className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
         <div>
           <div className="flex h-16 items-center">
-            <button
-              type="button"
-              onClick={() => setOpen(!open)}
-              className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
-            >
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open menu</span>
-              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
-            </button>
-
             {/* Logo */}
-            <div className="ml-4 flex space-x-4 items-center lg:ml-0">
-              <Link href="#">
-                <span className="sr-only">Your Company</span>
+            <div className=" flex space-x-4 items-center lg:ml-0">
+              <Link href="/">
+                <span className="sr-only">L.A.B.H</span>
                 <Image
                   alt="labh logo"
                   height={1500}
                   width={1500}
                   src="/labh.jpeg"
-                  className="sm:h-16 h-8 w-auto rounded-full"
+                  className="h-[3.5rem] w-auto rounded-full"
                 />
               </Link>
               <h1 className="text-red-500 sm:block hidden">L.A.B.H</h1>
@@ -220,17 +178,23 @@ export const TopNav = () => {
 
               {/* Cart */}
               <div className="ml-4 flow-root lg:ml-6">
-                <Link href="#" className="group -m-2 flex items-center p-2">
+                <Link href="/cart" className="group -m-2 flex items-center p-2">
                   <ShoppingBagIcon
                     aria-hidden="true"
                     className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                   />
-                  <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                    0
-                  </span>
                   <span className="sr-only">items in cart, view bag</span>
                 </Link>
               </div>
+              <button
+                type="button"
+                onClick={() => setOpen(true)}
+                className="relative block ml-4 sm:hidden rounded-md bg-white p-2 text-gray-400 lg:hidden"
+              >
+                <span className="absolute -inset-0.5" />
+                <span className="sr-only">Open menu</span>
+                <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+              </button>
             </div>
           </div>
         </div>

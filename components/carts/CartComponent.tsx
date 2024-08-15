@@ -6,10 +6,11 @@ import {
   ClockIcon,
   XMarkIcon as XMarkIconMini,
 } from "@heroicons/react/20/solid";
+import { Checkout } from "./Checkout";
 
-export const Cart = () => {
+export const CartComponent = () => {
   return (
-    <main className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
+    <main className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8 bg-white mt-5">
       <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         Shopping Cart
       </h1>
@@ -122,6 +123,7 @@ export const Cart = () => {
           </ul>
         </section>
       </form>
+      <Checkout/>
     </main>
   );
 };
