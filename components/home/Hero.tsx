@@ -1,6 +1,14 @@
-export const Hero: React.FC = () => {
+import { Flyout, Policy } from "../carts";
 
-    return(
-            <h1>Welcome to LABH home page</h1>
-    )
-}
+export const Hero = () => {
+ 
+  return (
+    <div className="bg-white">
+
+      <Flyout/>
+      <section>
+        <Policy/>
+      </section>
+    </div>
+  );
+};

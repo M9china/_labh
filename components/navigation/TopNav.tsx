@@ -1,129 +1,240 @@
 "use client";
+import {
+  Bars3Icon,
+  MagnifyingGlassIcon,
+  ShoppingBagIcon,
+} from "@heroicons/react/24/outline";
+import { Fragment, useState } from "react";
+import {
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from "@headlessui/react";
+import { XMarkIcon as XMarkIconOutline } from "@heroicons/react/24/outline";
+import { navigation } from "../navigation";
 import Link from "next/link";
-import { useState } from "react";
-import { TOPNAVDATA } from "./NavStatic";
-import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
-import { Dialog } from "@headlessui/react";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 export const TopNav = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="bg-gray-50 sm:py-2 fixed z-50 top-0 sm:w-full w-screen">
-      <nav
-        className="mx-auto flex sm:px-8 items-center justify-between sm:border-b-0 border-b-2"
-        aria-label="Global"
-      >
-        <Link href="/" className="-m-1.5 p-1.5">
-          <span className="sr-only">labh</span>
-          <span className="flex space-x-2 items-center">
-            <Image
-              alt="labh logo"
-              className="h-[4rem] rounded-full w-[4rem]"
-              src="/labh.jpeg"
-              height={1500}
-              width={15000}
-            />
-            <p className="text-2xl font-bold text-red-900">L.A.B.H</p>
-          </span>
-        </Link>
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
+      {/* Mobile menu */}
+      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
+        />
+
+        <div className="fixed inset-0 z-40 flex">
+          <DialogPanel
+            transition
+            className="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
           >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-12">
-          {TOPNAVDATA.map((item, index) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`text-lg flex items-center font-semibold leading-6 text-gray-600 ${
-                pathname === item.href ? "text-red-900 underline" : ""
-              }`}
-            >
-              {item.name}
-              <span className="">
-                {index === 1 && (
-                  <svg
-                    className="h-6 w-6 ml-1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
+            <div className="flex px-4 pb-2 pt-5">
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+              >
+                <span className="absolute -inset-0.5" />
+                <span className="sr-only">Close menu</span>
+                <XMarkIconOutline aria-hidden="true" className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Links */}
+            <TabGroup className="mt-2">
+              <div className="border-b border-gray-200">
+                <TabList className="-mb-px flex space-x-8 px-4">
+                  {navigation.categories.map((category) => (
+                    <Tab
+                      key={category.name}
+                      className="flex-1 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-base font-medium text-gray-900 data-[selected]:border-indigo-600 data-[selected]:text-indigo-600"
+                    >
+                      {category.name}
+                    </Tab>
+                  ))}
+                </TabList>
+              </div>
+              <TabPanels as={Fragment}>
+                {navigation.categories.map((category) => (
+                  <TabPanel
+                    key={category.name}
+                    className="space-y-10 px-4 pb-8 pt-10"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                    />
-                  </svg>
-                )}
-              </span>
-            </Link>
-          ))}
-          <Link
-            href="/login"
-            className="text-md font-semibold leading-6 text-gray-600"
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </Link>
+                    <div className="grid grid-cols-2 gap-x-4">
+                      {category.featured.map((item) => (
+                        <div key={item.name} className="group relative text-sm">
+                          <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                            <Image
+                            width={1500}
+                            height={1500}
+                              alt={item.imageAlt}
+                              src={item.imageSrc}
+                              className="object-cover object-center"
+                            />
+                          </div>
+                          <Link
+                            href={item.href}
+                            className="mt-6 block font-medium text-gray-900"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-0 z-10"
+                            />
+                            {item.name}
+                          </Link>
+                          <p aria-hidden="true" className="mt-1">
+                            Shop now
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    {category.sections.map((section) => (
+                      <div key={section.name}>
+                        <p
+                          id={`${category.id}-${section.id}-heading-mobile`}
+                          className="font-medium text-gray-900"
+                        >
+                          {section.name}
+                        </p>
+                        <ul
+                          role="list"
+                          aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
+                          className="mt-6 flex flex-col space-y-6"
+                        >
+                          {section.items.map((item) => (
+                            <li key={item.name} className="flow-root">
+                              <Link
+                                href={item.href}
+                                className="-m-2 block p-2 text-gray-500"
+                              >
+                                {item.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </TabPanel>
+                ))}
+              </TabPanels>
+            </TabGroup>
+
+            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+              {navigation.pages.map((page) => (
+                <div key={page.name} className="flow-root">
+                  <Link
+                    href={page.href}
+                    className="-m-2 block p-2 font-medium text-gray-900"
+                  >
+                    {page.name}
+                  </Link>
+                </div>
+              ))}
+            </div>
+
+            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+              <div className="flow-root">
+                <Link
+                  href="#"
+                  className="-m-2 block p-2 font-medium text-gray-900"
+                >
+                  Sign in
+                </Link>
+              </div>
+              <div className="flow-root">
+                <Link
+                  href="#"
+                  className="-m-2 block p-2 font-medium text-gray-900"
+                >
+                  Create account
+                </Link>
+              </div>
+            </div>
+          </DialogPanel>
         </div>
-      </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-      >
-        <div className="fixed inset-0 z-10" />
-        <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">EduGlory</span>
-            </Link>
+      </Dialog>
+      <nav aria-label="Top" className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
+        <div>
+          <div className="flex h-16 items-center">
             <button
               type="button"
-              className=" rounded-md mt-5 text-gray-700"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => setOpen(!open)}
+              className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
             >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <span className="absolute -inset-0.5" />
+              <span className="sr-only">Open menu</span>
+              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
             </button>
-          </div>
-          <div className=" flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {TOPNAVDATA.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 ${
-                      pathname === item.href ? "text-[#7F1011]" : ""
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-              <Link
-                href="/login"
-                className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-              >
-                Log in
+
+            {/* Logo */}
+            <div className="ml-4 flex space-x-4 items-center lg:ml-0">
+              <Link href="#">
+                <span className="sr-only">Your Company</span>
+                <Image
+                  alt="labh logo"
+                  height={1500}
+                  width={1500}
+                  src="/labh.jpeg"
+                  className="sm:h-16 h-8 w-auto rounded-full"
+                />
               </Link>
+              <h1 className="text-red-500 sm:block hidden">L.A.B.H</h1>
+            </div>
+
+            <div className="ml-auto flex items-center">
+              <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                <Link
+                  href="#"
+                  className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                >
+                  Sign in
+                </Link>
+                <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
+                <Link
+                  href="#"
+                  className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                >
+                  Create account
+                </Link>
+              </div>
+
+              {/* Search */}
+              <div className="flex lg:ml-6">
+                <Link
+                  href="#"
+                  className="p-2 text-gray-400 hover:text-gray-500"
+                >
+                  <span className="sr-only">Search</span>
+                  <MagnifyingGlassIcon aria-hidden="true" className="h-6 w-6" />
+                </Link>
+              </div>
+
+              {/* Cart */}
+              <div className="ml-4 flow-root lg:ml-6">
+                <Link href="#" className="group -m-2 flex items-center p-2">
+                  <ShoppingBagIcon
+                    aria-hidden="true"
+                    className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                  />
+                  <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                    0
+                  </span>
+                  <span className="sr-only">items in cart, view bag</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </Dialog>
+      </nav>
     </header>
   );
 };
