@@ -1,0 +1,6 @@
+export * from './CartComponent'
+export * from './Checkout'
+export * from './Favorites'
+export * from './PolicyData'
+export * from './Category'
+export * from './Discount'
