@@ -26,7 +26,7 @@ export const Category = () => {
 
         <div className="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-0 lg:gap-x-8">
           {favorites.map((favorite) => (
-            <div key={favorite.id} className="group relative shadow-md rounded p-6">
+            <Link href={favorite.href} key={favorite.id} className="group relative bg-gray-50 rounded p-6">
               <div className="h-96 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2 group-hover:opacity-75 sm:h-auto">
                 <Image width={1500} height={1500}
                   alt={favorite.imageAlt}
@@ -41,7 +41,7 @@ export const Category = () => {
                 </Link>
               </h3>
               <p className="mt-1 text-sm text-gray-500">{favorite.price}</p>
-            </div>
+            </Link >
           ))}
         </div>
 

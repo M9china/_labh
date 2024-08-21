@@ -23,7 +23,7 @@ export const TopNav = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="bg-gray-50 sm:py-2 fixed z-50 top-0 sm:w-full w-screen">
+    <header className="bg-gray-100 sm:py-2 fixed z-50 top-0 sm:w-full w-screen">
        <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
           transition
