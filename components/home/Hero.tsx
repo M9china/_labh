@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Category, Discount, Favorites } from "../carts";
+import { Category, Discount, Favorites } from "../Carts";
 
 export const Hero = () => {
   return (
@@ -31,7 +31,7 @@ export const Hero = () => {
                           width={1500}
                           height={1500}
                           alt=""
-                          src="/tvlogo.jpeg"
+                          src="/labh (10).jpeg"
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
@@ -40,12 +40,21 @@ export const Hero = () => {
                           width={1500}
                           height={1500}
                           alt=""
-                          src="/hats.jpeg"
+                          src="/labh (2).jpeg"
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
                     </div>
                     <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div className="h-64 w-44 overflow-hidden rounded-lg">
+                        <Image
+                          width={1500}
+                          height={1500}
+                          alt=""
+                          src="/labh (6).jpeg"
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
                       <div className="h-64 w-44 overflow-hidden rounded-lg">
                         <Image
                           width={1500}
@@ -60,7 +69,18 @@ export const Hero = () => {
                           width={1500}
                           height={1500}
                           alt=""
-                          src="/blacklabh.jpeg"
+                          src="/labh (4).jpeg"
+                          className="h-full w-full object-cover object-center"
+                        />
+                      </div>
+                    </div>
+                    <div className="sm:grid hidden flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div className="h-64 w-44 overflow-hidden rounded-lg">
+                        <Image
+                          width={1500}
+                          height={1500}
+                          alt=""
+                          src="/labh (2).jpeg"
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
@@ -69,7 +89,7 @@ export const Hero = () => {
                           width={1500}
                           height={1500}
                           alt=""
-                          src="/sleeves.jpeg"
+                          src="/labh (9).jpeg"
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
@@ -88,7 +108,7 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-      <section className="mt-[28rem] sm:mt-0">
+      <section>
         <Category />
       </section>
       <section>

@@ -5,7 +5,7 @@ export const Category = () => {
   
   return (
     <section aria-labelledby="category-heading" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-16 mt-[28rem] sm:mt-[12rem] sm:px-6 sm:py-32 lg:px-8">
         <div className="sm:flex sm:items-baseline sm:justify-between">
           <h2
             id="category-heading"
@@ -105,7 +105,7 @@ export const Category = () => {
 
         <div className="mt-6 sm:hidden">
           <Link
-            href="#"
+            href="/collection"
             className="block text-sm font-semibold text-gray-800 hover:text-gray-600"
           >
             Browse all categories
