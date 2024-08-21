@@ -1,114 +1,56 @@
-import Image from "next/image";
-import Link from "next/link";
+import { favorites } from "./PolicyData";
+import Link from 'next/link'
+import Image from 'next/image'
 
 export const Category = () => {
-  
+
+
   return (
-    <section aria-labelledby="category-heading" className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 mt-[28rem] sm:mt-[12rem] sm:px-6 sm:py-32 lg:px-8">
+       <section aria-labelledby="favorites-heading">
+      <div className="mx-auto max-w-7xl sm:mt-1 mt-[28rem] bg-white px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="sm:flex sm:items-baseline sm:justify-between">
           <h2
-            id="category-heading"
+            id="favorites-heading"
             className="text-2xl font-bold tracking-tight text-gray-900"
           >
-            Shop by Category
+            Shop By Category
           </h2>
           <Link
             href="#"
-            className="hidden text-sm font-semibold text-gray-800 hover:text-gray-600 sm:block"
+            className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
           >
-            Browse all categories
+            Browse Collection
             <span aria-hidden="true"> &rarr;</span>
           </Link>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
-          <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-1 sm:row-span-2">
-            <Image
-              width={1500}
-              height={1500}
-              alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
-              src="/l.a.b.h.jpeg"
-              className="object-cover rounded-md object-center group-hover:opacity-75"
-            />
-            <div
-              aria-hidden="true"
-              className="bg-gradient-to-b from-transparent to-black opacity-50"
-            />
-            <div className="flex items-end p-6">
-              <div>
-                <h3 className="font-semibold text-black">
-                  <Link href="#">
-                    <span className="absolute inset-0" />
-                    New Arrivals
-                    <p aria-hidden="true" className="mt-1 text-sm text-black">
-                      Shop now
-                    </p>
-                  </Link>
-                </h3>
+        <div className="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-0 lg:gap-x-8">
+          {favorites.map((favorite) => (
+            <div key={favorite.id} className="group relative shadow-md rounded p-6">
+              <div className="h-96 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2 group-hover:opacity-75 sm:h-auto">
+                <Image width={1500} height={1500}
+                  alt={favorite.imageAlt}
+                  src={favorite.imageSrc}
+                  className="h-full w-full object-cover object-center"
+                />
               </div>
+              <h3 className="mt-4 text-base font-semibold text-gray-900">
+                <Link href={favorite.href}>
+                  <span className="absolute inset-0" />
+                  {favorite.name}
+                </Link>
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">{favorite.price}</p>
             </div>
-          </div>
-          <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-            <Image
-              width={1500}
-              height={1500}
-              alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
-              src="/blacklabh.jpeg"
-              className="object-cover rounded-md object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
-            />
-            <div
-              aria-hidden="true"
-              className="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"
-            />
-            <div className="flex items-end p-6 sm:absolute sm:inset-0">
-              <div>
-                <h3 className="font-semibold text-black">
-                  <Link href="#">
-                    <span className="absolute inset-0" />
-                    Best Selling
-                    <p aria-hidden="true" className="mt-1 text-sm text-black">
-                      Shop now
-                    </p>
-                  </Link>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div className="group aspect-h-1 aspect-w-2 overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
-            <Image
-              width={1500}
-              height={1500}
-              alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
-              src="/labhats.png"
-              className="object-cover rounded-md object-center group-hover:opacity-75 sm:absolute sm:inset-0 sm:h-full sm:w-full"
-            />
-            <div
-              aria-hidden="true"
-              className="bg-gradient-to-b from-transparent to-black opacity-50 sm:absolute sm:inset-0"
-            />
-            <div className="flex items-end p-6 sm:absolute sm:inset-0">
-              <div>
-                <h3 className="font-semibold text-black">
-                  <Link href="#">
-                    <span className="absolute inset-0" />
-                    Head Wear
-                    <p aria-hidden="true" className="mt-1 text-sm text-black">
-                      Shop now
-                    </p>
-                  </Link>
-                </h3>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="mt-6 sm:hidden">
           <Link
-            href="/collection"
+            href="#"
             className="block text-sm font-semibold text-gray-800 hover:text-gray-600"
           >
-            Browse all categories
+            Browse Collection
             <span aria-hidden="true"> &rarr;</span>
           </Link>
         </div>
