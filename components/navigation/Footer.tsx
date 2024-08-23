@@ -8,7 +8,7 @@ export const Footer = () => {
         Footer
       </h2>
       <div className="mx-auto max-w-8xl px-4 lg:px-8">
-        <div className="border-t border-gray-200 py-10">
+        <div className="py-10">
           <div className="grid grid-cols-1 md:grid-flow-col md:auto-rows-min md:grid-cols-12 md:gap-x-8 md:gap-y-16">
             {/* Sitemap sections */}
             <div className="col-span-6 mt-10 grid grid-cols-2 gap-8 sm:grid-cols-3 md:col-span-8 md:col-start-3 md:row-start-1 md:mt-0 lg:col-span-6">
@@ -86,7 +86,7 @@ export const Footer = () => {
 
         <div className="border-t border-gray-100 py-8 text-center">
           <p className="text-sm text-gray-500">
-            &copy; 2021 L.A.B.H, Inc. All rights reserved.
+            &copy; 2020 L.A.B.H, Inc. All rights reserved.
           </p>
         </div>
       </div>

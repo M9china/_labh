@@ -99,7 +99,7 @@ export const Hero = () => {
               </div>
 
               <Link
-                href="#"
+                href="/collection"
                 className="inline-block rounded-md border border-transparent bg-black px-8 py-3 text-center font-medium text-white hover:bg-gray-700"
               >
                 Shop Collection

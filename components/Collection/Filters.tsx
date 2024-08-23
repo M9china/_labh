@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import './scroll-bar.css'
 
 const filters = [
     {
@@ -8,8 +9,11 @@ const filters = [
       options: [
         { value: "all", label: "All" },
         { value: "tees", label: "Tees" },
+        {value: 'sweaters', label: 'Sweaters'},
         { value: "headwear", label: "Hats & Bennies"},
         { value: "pants", label: "Pants"},
+        { value: "hoodies", label: "Hoodies"},
+
 
       ]
     }
@@ -23,9 +27,10 @@ const filters = [
     };
 
     return (
-        <div>
+        <>
+        <div className='overflow-x-scroll scrollbar-hide'>
             {filters.map((item) => (
-                <div key={item.id}>
+                <div key={item.id} >
                     {item.id === 'category' && 
                     <div className='flex justify-between items-center mt-5 px-4'>
                         {item.options.map((x) => (
@@ -41,5 +46,9 @@ const filters = [
                 </div>
             ))}
         </div>
+        <main className='grid grid-cols-2 gap-4'>
+
+        </main>
+        </>
     );
 };
