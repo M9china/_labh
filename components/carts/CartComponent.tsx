@@ -1,4 +1,4 @@
-import { products } from "../Home";
+import { products } from "../home";
 import Image from "next/image";
 import Link from "next/link";
 import {

@@ -3,7 +3,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Filters } from "./Filters";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Placeholder } from "../Home/Placeholder";
+import { Placeholder } from "../home/Placeholder";
 
 export const OurCollection = () => {
   const [query, setQuery] = useState("");
