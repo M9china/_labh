@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Category, Discount, Favorites } from "../carts";
+import { Category, Discount, Favorites } from "../Carts";
 
 export const Hero = () => {
   return (
