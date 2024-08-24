@@ -168,7 +168,7 @@ export const TopNav = () => {
               <div className="flex lg:ml-6">
                 <Link
                   href='/blog'
-                  className="p-2 text-gray-700 font-semibold hover:text-gray-500"
+                  className="p-2 text-black text-sm font-semibold"
                 >
                   <span className="sr-only">blog</span>
                   Blog
