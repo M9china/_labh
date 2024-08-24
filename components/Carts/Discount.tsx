@@ -43,7 +43,7 @@ export const Discount = () => {
                         width={1500}
                         height={1500}
                         alt=""
-                        src="/tvlogo.jpeg"
+                        src="/labh (21).jpeg"
                         className="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
                       />
                     </div>

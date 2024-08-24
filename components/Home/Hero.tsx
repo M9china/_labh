@@ -60,7 +60,7 @@ export const Hero = () => {
                           width={1500}
                           height={1500}
                           alt=""
-                          src="/tv.jpeg"
+                          src="/labh (20).jpeg"
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
