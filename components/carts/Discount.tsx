@@ -54,38 +54,7 @@ export const Discount = () => {
                         width={1500}
                         height={1500}
                         alt=""
-                        src="/"
-                        className="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                      />
-                    </div>
-
-                    <div className="mt-6 flex-shrink-0 sm:mt-0">
-                      <Image
-                        width={1500}
-                        height={1500}
-                        alt=""
-                        src="/"
-                        className="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:flex hidden space-x-6 sm:flex-col sm:space-x-0 sm:space-y-6 lg:space-y-8">
-                    <div className="flex-shrink-0">
-                      <Image
-                        width={1500}
-                        height={1500}
-                        alt=""
-                        src="/"
-                        className="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
-                      />
-                    </div>
-
-                    <div className="mt-6 flex-shrink-0 sm:mt-0">
-                      <Image
-                        width={1500}
-                        height={1500}
-                        alt=""
-                        src="/"
+                        src="/labh (17).jpeg"
                         className="h-64 w-64 rounded-lg object-cover md:h-72 md:w-72"
                       />
                     </div>

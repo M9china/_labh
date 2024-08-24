@@ -1,6 +1,5 @@
 "use client";
 import {
-  MagnifyingGlassIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -23,7 +22,7 @@ export const TopNav = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="bg-gray-50 sm:py-2 fixed z-50 top-0 sm:w-full w-screen">
+    <header className="sm:py-2 bg-white fixed border-b z-50 top-0 sm:w-full w-screen">
        <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
           transition
@@ -168,11 +167,12 @@ export const TopNav = () => {
               {/* Search */}
               <div className="flex lg:ml-6">
                 <Link
-                  href="#"
-                  className="p-2 text-gray-400 hover:text-gray-500"
+                  href='/blog'
+                  className="p-2 text-black text-sm font-semibold"
                 >
-                  <span className="sr-only">Search</span>
-                  <MagnifyingGlassIcon aria-hidden="true" className="h-6 w-6" />
+                  <span className="sr-only">blog</span>
+                  Blog
+                  
                 </Link>
               </div>
 
@@ -181,7 +181,7 @@ export const TopNav = () => {
                 <Link href="/cart" className="group -m-2 flex items-center p-2">
                   <ShoppingBagIcon
                     aria-hidden="true"
-                    className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                    className="h-6 w-6 flex-shrink-0 text-black font-semibold group-hover:text-gray-500"
                   />
                   <span className="sr-only">items in cart, view bag</span>
                 </Link>
@@ -189,7 +189,7 @@ export const TopNav = () => {
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="relative block ml-4 sm:hidden rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                className="relative block ml-4 sm:hidden rounded-md bg-white p-2 font-semibold text-black lg:hidden"
               >
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>
