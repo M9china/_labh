@@ -3,6 +3,6 @@ import { Placeholder } from "@/components";
 export default function Blog() {
 
     return(
-        <Placeholder/>
+        <Placeholder title={"About us page is currently under development"}/>
     )
 }
