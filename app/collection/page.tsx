@@ -1,8 +1,10 @@
 import { OurCollection } from "@/components";
+import { Suspense } from "react";
 
 export default function Collection() {
-
-    return(
-        <OurCollection/>
-    )
+  return (
+    <Suspense>
+      <OurCollection />
+    </Suspense>
+  );
 }
