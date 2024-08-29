@@ -1,7 +1,5 @@
 "use client";
-import {
-  ShoppingBagIcon,
-} from "@heroicons/react/24/outline";
+import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -13,17 +11,17 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-} from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+} from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
 import { navigation } from "./NavStatic";
 
 export const TopNav = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="sm:py-2 bg-white fixed border-b z-50 top-0 sm:w-full w-screen">
-       <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
+      <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
           transition
           className="fixed inset-0 bg-black bg-opacity-25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
@@ -47,81 +45,36 @@ export const TopNav = () => {
             </div>
 
             {/* Links */}
-            <TabGroup className="mt-2">
-              <div className="border-b border-gray-200">
-                <TabList className="-mb-px flex space-x-8 px-4">
-                  {navigation.categories.map((category) => (
-                    <Tab
-                      key={category.name}
-                      className="flex-1 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-base font-medium text-gray-900 data-[selected]:border-indigo-600 data-[selected]:text-indigo-600"
-                    >
-                      {category.name}
-                    </Tab>
-                  ))}
-                </TabList>
-              </div>
+            <TabGroup className="">
+
               <TabPanels as={Fragment}>
                 {navigation.categories.map((category) => (
-                  <TabPanel key={category.name} className="space-y-10 px-4 pb-8 pt-10">
-                    <div className="grid grid-cols-2 gap-x-4">
-                      {category.featured.map((item) => (
-                        <div key={item.name} className="group relative text-sm">
-                          <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                            <Image width={1500} height={1500} alt={item.imageAlt} src={item.imageSrc} className="object-cover object-center" />
-                          </div>
-                          <Link href={item.href} className="mt-6 block font-medium text-gray-900">
-                            <span aria-hidden="true" className="absolute inset-0 z-10" />
-                            {item.name}
-                          </Link>
-                          <p aria-hidden="true" className="mt-1">
-                            Shop now
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                    {category.sections.map((section) => (
-                      <div key={section.name}>
-                        <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-gray-900">
-                          {section.name}
-                        </p>
-                        <ul
-                          role="list"
-                          aria-labelledby={`${category.id}-${section.id}-heading-mobile`}
-                          className="mt-6 flex flex-col space-y-6"
-                        >
-                          {section.items.map((item) => (
-                            <li key={item.name} className="flow-root">
-                              <Link href={item.href} className="-m-2 block p-2 text-gray-500">
-                                {item.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                  <TabPanel
+                    key={category.name}
+                    className="space-y-10 px-4 pb-8 pt-10"
+                  >
+                  <Link href={category.href}>
+                  <span>{category.name}</span>
+                  </Link>
                   </TabPanel>
                 ))}
               </TabPanels>
             </TabGroup>
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              {navigation.pages.map((page) => (
-                <div key={page.name} className="flow-root">
-                  <Link href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
-                    {page.name}
-                  </Link>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <Link href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                <Link
+                  href="#"
+                  className="-m-2 block p-2 font-medium text-gray-900"
+                >
                   Sign in
                 </Link>
               </div>
               <div className="flow-root">
-                <Link href="#" className="-m-2 block p-2 font-medium text-gray-900">
+                <Link
+                  href="#"
+                  className="-m-2 block p-2 font-medium text-gray-900"
+                >
                   Create account
                 </Link>
               </div>
@@ -167,12 +120,24 @@ export const TopNav = () => {
               {/* Search */}
               <div className="flex lg:ml-6">
                 <Link
-                  href='/blog'
+                  href="/blog"
                   className="p-2 text-black text-sm font-semibold"
                 >
-                  <span className="sr-only">blog</span>
-                  Blog
-                  
+                  <span className="sr-only">Wish list</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="h-6 w-6 font-semibold text-black"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                    />
+                  </svg>
                 </Link>
               </div>
 
