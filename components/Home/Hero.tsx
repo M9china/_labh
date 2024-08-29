@@ -4,8 +4,8 @@ import { Category, Discount, Favorites } from "../Carts";
 
 export const Hero = () => {
   return (
-    <div className="bg-white sm:w-full w-screen">
-      <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40 bg-white mt-5">
+    <div className="bg-white sm:w-full w-screen overflow-hidden">
+      <div className="pb-80 pt-16 sm:pb-40  sm:pt-24 lg:pb-48 lg:pt-40 bg-white mt-5">
         <div className="relative max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">
             <h1 className="text-4xl font-bold leading-[2.5rem] tracking-tight text-gray-900 sm:text-6xl">
