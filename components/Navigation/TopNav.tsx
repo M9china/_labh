@@ -120,7 +120,7 @@ export const TopNav = () => {
               {/* Search */}
               <div className="flex lg:ml-6">
                 <Link
-                  href="/blog"
+                  href="/wishlist"
                   className="p-2 text-black text-sm font-semibold"
                 >
                   <span className="sr-only">Wish list</span>
