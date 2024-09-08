@@ -16,8 +16,7 @@ declare module "next-auth" {
   }
 }
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Google
-  ],
+  providers: [Google],
   theme: {
     logo: "/labh (18).jpeg",
   },

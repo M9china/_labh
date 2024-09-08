@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {output: "standalone",  experimental: {
-    externalMiddlewareRewritesResolve: true,
-  },};
+const nextConfig = {output: "standalone",};
 
 export default nextConfig;
