@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Footer, TopNav } from "@/components";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/lib";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,18 +12,24 @@ export const metadata: Metadata = {
   description: `Spread joy and positivity with our "Let's All Be Happy" collection, designed to brighten every day.`,
 };
 
-export default function RootLayout({
+async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <TopNav/>
-        {children}
-        <Footer/>
+      <SessionProvider session={session}>
+        <body className={inter.className}>
+          <TopNav />
+          {children}
+          <Footer />
         </body>
+      </SessionProvider>
     </html>
   );
 }
+
+export default RootLayout;
