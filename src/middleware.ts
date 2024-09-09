@@ -15,4 +15,5 @@ export const config = {
 export const protectedRoutes = [
  '/collection',
  '/cart',
+ '/wishlist',
 ]
