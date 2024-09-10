@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "start": "node .next/standalone/server.js",
     "lint": "next lint",
     "mg": "npx prisma migrate dev && npx prisma generate",
     "studio": "npx prisma studio"
@@ -19,10 +19,11 @@
     "googleapis": "^144.0.0",
     "next": "14.2.5",
     "next-auth": "5.0.0-beta.17",
-    "pnpm": "8.15.0",
+    "pnpm": "^9.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-slick": "^0.30.2",
+    "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
