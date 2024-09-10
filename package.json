@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "start": "node .next/standalone/server.js",
     "lint": "next lint",
     "mg": "npx prisma migrate dev && npx prisma generate",
     "studio": "npx prisma studio"
@@ -15,7 +15,7 @@
     "@auth/prisma-adapter": "^2.4.2",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
-    "@prisma/client": "^5.19.1",
+    "@prisma/client": "^5.0.0",
     "googleapis": "^144.0.0",
     "next": "14.2.5",
     "next-auth": "5.0.0-beta.17",
@@ -23,6 +23,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-slick": "^0.30.2",
+    "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
@@ -33,7 +34,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
-    "prisma": "^5.19.1",
+    "prisma": "^5.0.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.5.3"
   }
