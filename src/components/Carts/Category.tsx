@@ -14,7 +14,7 @@ export const Category = () => {
             Shop By Category
           </h2>
           <Link
-            href="#"
+            href="/collection"
             className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
           >
             Browse Collection
@@ -35,7 +35,7 @@ export const Category = () => {
                   height={1500}
                   alt={favorite.imageAlt}
                   src={favorite.imageSrc}
-                  className="h-full w-full object-cover object-center"
+                  className="h-full w-full sm:h-[22rem] object-cover object-center"
                 />
               </div>
               <div className="sm:mt-6 sm:hidden absolute -mt-[9.5rem] ml-[1rem] ">

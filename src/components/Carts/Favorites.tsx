@@ -19,7 +19,7 @@ export const Favorites = () => {
     slidesToScroll: 1,
   };
   return (
-    <section aria-labelledby="category-heading" className="bg-white">
+    <section aria-labelledby="category-heading" className="bg-white sm:hidden block">
       <div className="mx-auto max-w-7xl px-4 pb-24 sm:mt-[12rem] sm:px-6 sm:py-32 lg:px-8">
         <div className="sm:flex sm:items-baseline sm:justify-between">
           <h2

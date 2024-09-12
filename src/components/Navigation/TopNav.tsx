@@ -54,7 +54,7 @@ export const TopNav = () => {
                     className="space-y-10 px-4 pb-8 pt-10"
                   >
                   <Link href={category.href}>
-                  <span>{category.name}</span>
+                  <span className='text-black hover:underline'>{category.name}</span>
                   </Link>
                   </TabPanel>
                 ))}
@@ -97,21 +97,21 @@ export const TopNav = () => {
                   className="h-[3.5rem] w-auto rounded-full"
                 />
               </Link>
-              <h1 className="text-red-500 sm:block hidden">L.A.B.H</h1>
+              <h1 className="text-red-500 sm:block hidden text-2xl">L.A.B.H</h1>
             </div>
 
             <div className="ml-auto flex items-center">
               <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                 <Link
                   href="/api/auth/signin"
-                  className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                  className="text-md font-medium text-gray-700 hover:text-gray-800"
                 >
                   Sign in
                 </Link>
                 <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                 <Link
                   href="#"
-                  className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                  className="text-md font-medium text-gray-700 hover:text-gray-800"
                 >
                   Create account
                 </Link>

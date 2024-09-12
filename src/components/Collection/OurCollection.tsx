@@ -17,7 +17,7 @@ export const OurCollection = () => {
   };
 
   return (
-    <>
+    
       <div className="bg-white pt-[5rem]">
         {/** Search bar */}
         <form
@@ -44,9 +44,7 @@ export const OurCollection = () => {
         </form>
         {/* Mobile filter dialog */}
         <Filters />
-        <Placeholder title={"This section currently under development"}/>
       </div>
-      <div></div>
-    </>
+   
   );
 };
