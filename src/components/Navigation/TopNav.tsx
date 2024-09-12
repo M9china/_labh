@@ -54,7 +54,7 @@ export const TopNav = () => {
                     className="space-y-10 px-4 pb-8 pt-10"
                   >
                   <Link href={category.href}>
-                  <span>{category.name}</span>
+                  <span className='text-black hover:underline'>{category.name}</span>
                   </Link>
                   </TabPanel>
                 ))}
