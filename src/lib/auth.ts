@@ -23,6 +23,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   theme: {
     logo: "/labh (18).jpeg",
   },
+  pages: {
+    newUser: "/",
+  },
   callbacks: {
     redirect: () => {
       return "/collection";
