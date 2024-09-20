@@ -14,7 +14,6 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
-import { navigation } from "./NavStatic";
 import { signOut } from "next-auth/react";
 export const TopNav = ({user}: any) => {
   const [open, setOpen] = useState(false);
@@ -34,7 +33,7 @@ export const TopNav = ({user}: any) => {
         <div className="fixed inset-0 z-40 flex">
           <DialogPanel
             transition
-            className="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
+            className="relative flex w-1/2 max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
           >
             <div className="flex px-4 pb-2 pt-5">
               <button
@@ -49,22 +48,6 @@ export const TopNav = ({user}: any) => {
             </div>
 
             {/* Links */}
-            <TabGroup className="">
-              <TabPanels as={Fragment}>
-                {navigation.categories.map((category) => (
-                  <TabPanel
-                    key={category.name}
-                    className="space-y-10 px-4 pb-8 pt-10"
-                  >
-                    <Link href={category.href}>
-                      <span className="text-black hover:underline">
-                        {category.name}
-                      </span>
-                    </Link>
-                  </TabPanel>
-                ))}
-              </TabPanels>
-            </TabGroup>
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
@@ -72,14 +55,14 @@ export const TopNav = ({user}: any) => {
                   <Link
                     href="/"
                     onClick={handleAuth}
-                    className="-m-2 block p-2 font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-700"
                   >
                     Sign Out
                   </Link>
                 ) : (
                   <Link
                     href="/api/auth/signin"
-                    className="-m-2 block p-2 font-medium text-gray-900"
+                    className="-m-2 block p-2 font-medium text-gray-700"
                   >
                     Sign in
                   </Link>
@@ -88,7 +71,7 @@ export const TopNav = ({user}: any) => {
               <div className="flow-root">
                 <Link
                   href="/profile"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  className="-m-2 block p-2 font-medium text-gray-700"
                 >
                   Profile
                 </Link>

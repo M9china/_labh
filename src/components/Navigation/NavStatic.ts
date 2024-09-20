@@ -1,16 +1,3 @@
-export const navigation = {
-      categories: [
-        { name: 'Hoodies', href: '#' },
-        { name: 'Pants', href: '#' },
-        { name: 'Sweaters', href: '#' },
-        { name: 'T-Shirts', href: '#' },
-        { name: 'Hats', href: '#' },
-      ],
-      pages: [
-        { name: 'Company', href: '#' },
-        { name: 'Stores', href: '#' },
-      ],
-    }
 
 export const footerNavigation = {
       products: [
