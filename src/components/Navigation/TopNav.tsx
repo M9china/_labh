@@ -14,10 +14,13 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
-import { navigation } from "./NavStatic";
-
-export const TopNav = () => {
+import { signOut } from "next-auth/react";
+export const TopNav = ({user}: any) => {
   const [open, setOpen] = useState(false);
+
+  const handleAuth = () => {
+    return signOut({ callbackUrl: "/" });
+  };
 
   return (
     <header className="sm:py-2 bg-white fixed border-b z-50 top-0 sm:w-full w-screen">
@@ -30,7 +33,7 @@ export const TopNav = () => {
         <div className="fixed inset-0 z-40 flex">
           <DialogPanel
             transition
-            className="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
+            className="relative flex w-1/2 max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:-translate-x-full"
           >
             <div className="flex px-4 pb-2 pt-5">
               <button
@@ -45,37 +48,32 @@ export const TopNav = () => {
             </div>
 
             {/* Links */}
-            <TabGroup className="">
-
-              <TabPanels as={Fragment}>
-                {navigation.categories.map((category) => (
-                  <TabPanel
-                    key={category.name}
-                    className="space-y-10 px-4 pb-8 pt-10"
-                  >
-                  <Link href={category.href}>
-                  <span className='text-black hover:underline'>{category.name}</span>
-                  </Link>
-                  </TabPanel>
-                ))}
-              </TabPanels>
-            </TabGroup>
 
             <div className="space-y-6 border-t border-gray-200 px-4 py-6">
               <div className="flow-root">
-                <Link
-                  href="/api/auth/signin"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Sign in
-                </Link>
+                {user ? (
+                  <Link
+                    href="/"
+                    onClick={handleAuth}
+                    className="-m-2 block p-2 font-medium text-gray-700"
+                  >
+                    Sign Out
+                  </Link>
+                ) : (
+                  <Link
+                    href="/api/auth/signin"
+                    className="-m-2 block p-2 font-medium text-gray-700"
+                  >
+                    Sign in
+                  </Link>
+                )}
               </div>
               <div className="flow-root">
                 <Link
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  href="/profile"
+                  className="-m-2 block p-2 font-medium text-gray-700"
                 >
-                  Create account
+                  Profile
                 </Link>
               </div>
             </div>
@@ -102,18 +100,28 @@ export const TopNav = () => {
 
             <div className="ml-auto flex items-center">
               <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                <Link
-                  href="/api/auth/signin"
-                  className="text-md font-medium text-gray-700 hover:text-gray-800"
-                >
-                  Sign in
-                </Link>
+              {user ? (
+                  <Link
+                    href="/"
+                    onClick={handleAuth}
+                    className="-m-2 block p-2 font-medium text-gray-900"
+                  >
+                    Sign Out
+                  </Link>
+                ) : (
+                  <Link
+                    href="/api/auth/signin"
+                    className="-m-2 block p-2 font-medium text-gray-900"
+                  >
+                    Sign in
+                  </Link>
+                )}
                 <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                 <Link
-                  href="#"
+                  href="/profile"
                   className="text-md font-medium text-gray-700 hover:text-gray-800"
                 >
-                  Create account
+                  Profile
                 </Link>
               </div>
 
@@ -166,4 +174,4 @@ export const TopNav = () => {
       </nav>
     </header>
   );
-};
+}
