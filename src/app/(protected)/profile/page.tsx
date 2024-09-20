@@ -1,8 +1,13 @@
-export default function Profile(){
+import { ProfilePage } from "@/components";
+import { auth } from "@/lib";
+import { Session } from "next-auth";
 
-    return(
-        <>
-        Profile Page
-        </>
-    )
+async function Profile() {
+  const { user } = (await auth()) as Session;
+
+  return (
+    <ProfilePage image={user.image} name={user.name} email={user.email}/>
+  );
 }
+
+export default Profile;
