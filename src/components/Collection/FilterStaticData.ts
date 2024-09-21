@@ -20,46 +20,46 @@ export const filters = [
 
 export const allItems = {
   all: [
-    { id: 1, name: "Basic Tee", price: "", image: "/labh (6).jpeg" },
-    { id: 2, name: "Long sleeves", price: "", image: "/labh (20).jpeg" },
-    { id: 3, name: "Graphic Tee", price: "", image: "/labh (13).jpeg" },
-    { id: 4, name: "Confy Sweater", price: "", image: "/" },
-    { id: 5, name: "Tote Bag", price: "", image: "/" },
-    { id: 6, name: "Bucket Hat", price: "", image: "/labh (9).jpeg" },
-    { id: 7, name: "Baseball Cap", price: "", image: "/" },
-    { id: 8, name: "Jogger Pants", price: "", image: "/" },
-    { id: 9, name: "Cargo Pants", price: "", image: "/" },
-    { id: 10, name: "Classic Hoodie", price: "", image: "/" },
-    { id: 11, name: "Oversized Hoodie", price: "", image: "/" },
-    { id: 12, name: "Tights", price: "", image: "/labh (10).jpeg" },
-    { id: 13, name: "Bennies", price: "", image: "/labh (4).jpeg" },
+    { id: 'basic-tee', name: "Basic Tee", price: "", image: "/labh (6).jpeg" },
+    { id: 'long-sleeve', name: "Long sleeves", price: "", image: "/labh (20).jpeg" },
+    { id: 'graphic-tee', name: "Graphic Tee", price: "", image: "/labh (13).jpeg" },
+    { id: 'confy-sweater', name: "Confy Sweater", price: "", image: "/" },
+    { id: 'tote-bag', name: "Tote Bag", price: "", image: "/" },
+    { id: 'bucket-hat', name: "Bucket Hat", price: "", image: "/labh (9).jpeg" },
+    { id: 'baseball-cap', name: "Baseball Cap", price: "", image: "/" },
+    { id: 'jogger-pants', name: "Jogger Pants", price: "", image: "/" },
+    { id: 'cargo-pants', name: "Cargo Pants", price: "", image: "/" },
+    { id: 'first-range-hoodie', name: "Classic Hoodie", price: "", image: "/" },
+    { id: 'oversized-hoodie', name: "Oversized Hoodie", price: "", image: "/" },
+    { id: 'tights', name: "Tights", price: "", image: "/labh (10).jpeg" },
+    { id: 'bennies', name: "Bennies", price: "", image: "/labh (4).jpeg" },
   ],
   tees: [
-    { id: 1, name: "Basic Tee", price: "", image: "/" },
-    { id: 2, name: "Graphic Tee", price: "", image: "/" },
+    { id: 'basic-tee', name: "Basic Tee", price: "", image: "/" },
+    { id: 'graphic-tee', name: "Graphic Tee", price: "", image: "/" },
   ],
   classic: [
-    { id: 13, name: "Classic Hoodie", price: "", image: "/" }
+    { id: 'classic-hoodie', name: "Classic Hoodie", price: "", image: "/" }
 ],
   sweaters: [
-    { id: 4, name: "Comfy Sweater", price: "", image: "/" },
-    { id: 9, name: "Wool Sweater", price: "", image: "/" },
+    { id: 'comfy-sweater', name: "Comfy Sweater", price: "", image: "/" },
+    { id: 'wool-sweater', name: "Wool Sweater", price: "", image: "/" },
   ],
   bags: [
-    { id: 5, name: "Tote Bag", price: "", image: "/" }
+    { id: 'tote-bag', name: "Tote Bag", price: "", image: "/" }
 ],
   exclusive: [
-    { id: 6, name: "Exclusive ", price: "", image: "/" }
+    { id: 'exclusive-hoodie#1', name: "Exclusive ", price: "", image: "/" }
 ],
   headwear: [
-    { id: 7, name: "Baseball Cap", price: "", image: "/" }
+    { id: 'baseall-cap', name: "Baseball Cap", price: "", image: "/" }
 ],
   pants: [
-    { id: 8, name: "Jogger Pants", price: "", image: "/" },
-    { id: 9, name: "Cargo Pants", price: "", image: "/" },
+    { id: 'jogger-pants', name: "Jogger Pants", price: "", image: "/" },
+    { id: 'cargo-pants', name: "Cargo Pants", price: "", image: "/" },
   ],
   hoodies: [
-    { id: 10, name: "Relaxed Fit", price: "", image: "/" },
-    { id: 11, name: "Oversized", price: "", image: "/" },
+    { id: 'relaxed-fit', name: "Relaxed Fit", price: "", image: "/" },
+    { id: 'over-sized#1', name: "Oversized", price: "", image: "/" },
   ],
 };
