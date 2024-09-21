@@ -6,14 +6,9 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
-  Tab,
-  TabGroup,
-  TabList,
-  TabPanel,
-  TabPanels,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Fragment, useState } from "react";
+import {useState } from "react";
 import { signOut } from "next-auth/react";
 export const TopNav = ({user}: any) => {
   const [open, setOpen] = useState(false);
