@@ -49,7 +49,7 @@ export const Filters = () => {
             <main className='grid grid-cols-2 gap-8 mt-8 px-4'>
                 {filteredItems.length > 0 ? (
                     filteredItems.map((item) => (
-                        <Link href={'/'} key={item.id} className=''>
+                        <Link href={`/collection/${item.id}`} key={item.id} className=''>
                             <Image className='h-[15rem] border w-full object-cover rounded mt-4' alt={`${item.name} image`} src={item.image} width={1500} height={1500}/>
                             <h2 className='text-md text-black font-medium mt-2 text-lg overflow-ellipsis'>{item.name}</h2>
                             <p className='text-md text-gray-800 font-medium text-md'>R {item.price}</p>
@@ -61,4 +61,4 @@ export const Filters = () => {
             </main>
         </>
     );
-};
+}
