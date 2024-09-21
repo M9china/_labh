@@ -25,7 +25,7 @@ export const SelectedItem = () => {
         className="flex rounded text-black space-x-2 cursor-pointer items-center"
       >
         <ArrowLeftIcon className="h-4 w-4 font-semibold mr-2" />
-        <span className="text-md mr-4 semibold">Collection</span>
+        <span className="text-md mr-4 font-semibold">Collection</span>
       </button>
       <div className="mt-5">
         <Image
