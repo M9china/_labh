@@ -7,7 +7,7 @@
     "build": "prisma generate && next build",
     "start": "node .next/standalone/server.js",
     "lint": "next lint",
-    "mg": "npx prisma migrate dev && npx prisma generate",
+    "mg": "npx prisma generate && npx prisma migrate dev",
     "studio": "npx prisma studio"
   },
   "dependencies": {
