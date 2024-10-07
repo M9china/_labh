@@ -7,11 +7,14 @@ import Image from "next/image";
 import { useSession, signIn } from "next-auth/react";
 import { IItem } from "./FilterDto";
 import { addToCart } from "@/actions";
+import { useState } from "react";
+import { CartNotification } from "../Overlays";
 
 export const SelectedItem: React.FC<IItem> = ({ productId }) => {
   const router = useRouter();
   const { id } = useParams();
   const { data: session } = useSession();
+  const [isAdded, setIsAdded] = useState(false); 
 
   // Find the item based on the ID from the URL
   const item = Object.values(allItems)
@@ -31,8 +34,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
     try {
       // Call the server action to add the item to the cart
       await addToCart(item.productId, 1);
-      console.log('item successfully added',item.productId) 
-      alert('Item added to cart successfully!');
+      setIsAdded(true);
     } catch (error) {
       console.error('Error adding item to cart:', error);
       alert('There was an error adding the item to the cart.');
@@ -78,6 +80,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
             </svg>
           </div>
         </div>
+        {isAdded && <CartNotification/>}
         <div className="bg-blue-600 text-white rounded flex justify-center mt-5">
           <button
             onClick={handleAddToCart}
