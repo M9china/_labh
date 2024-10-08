@@ -129,16 +129,17 @@ export const  TopNav = ({ user }: any) => {
                 </Link>
               </div>
 
+              <div className='flex items-center'>
               <div className="flex lg:ml-6 relative ml-4">
                 <Link href="/cart" className="group -m-2 flex items-center p-2">
                   <ShoppingBagIcon
                     aria-hidden="true"
-                    className="h-5 w-5 flex-shrink-0 text-black font-semibold group-hover:text-gray-500"
+                    className="h-6 w-6 flex-shrink-0 text-black font-semibold group-hover:text-gray-500"
                   />
                   <span className="sr-only">items in cart, view bag</span>
                 </Link>
               </div>
-              {count?.items?.length >= 0 && (
+              {count?.items?.length > 0 && (
                 <div className="bg-blue-600 sm:hidden w-4 flex items-center justify-center h-4 -mt-5 ml-5 rounded-full absolute">
                   <p className="text-sm">{count.items.length}</p>
                 </div>
@@ -176,6 +177,7 @@ export const  TopNav = ({ user }: any) => {
                 <span className="sr-only">Open menu</span>
                 <Bars3Icon aria-hidden="true" className="h-6 w-6" />
               </button>
+              </div>
             </div>
           </div>
         </div>
