@@ -129,9 +129,9 @@ export const  TopNav = ({ user }: any) => {
                 </Link>
               </div>
 
-              <div className='flex items-center'>
-              <div className="flex lg:ml-6 relative ml-4">
-                <Link href="/cart" className="group -m-2 flex items-center p-2">
+              <div className='flex items-center space-x-4'>
+              <div className="lg:ml-6 relative">
+                <Link href="/cart" >
                   <ShoppingBagIcon
                     aria-hidden="true"
                     className="h-6 w-6 flex-shrink-0 text-black font-semibold group-hover:text-gray-500"
@@ -146,10 +146,10 @@ export const  TopNav = ({ user }: any) => {
               )}
 
               {/* Cart */}
-              <div className="ml-4 flow-root lg:ml-6">
+              <div className=" lg:ml-6">
                 <Link
                   href="/wishlist"
-                  className="p-2 text-black text-sm font-semibold"
+                  className=" text-black text-sm font-semibold"
                 >
                   <span className="sr-only">Wish list</span>
                   <svg
@@ -171,11 +171,10 @@ export const  TopNav = ({ user }: any) => {
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="relative block ml-4 sm:hidden rounded-md bg-white p-2 font-semibold text-black lg:hidden"
+                className="relative block sm:hidden rounded-md bg-white  font-semibold text-black lg:hidden"
               >
-                <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open menu</span>
-                <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+                <Bars3Icon aria-hidden="true" className="h-7 w-7" />
               </button>
               </div>
             </div>
