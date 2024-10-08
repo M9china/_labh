@@ -18,6 +18,8 @@ async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = (await auth()) as Session;
+  
+
 
   return (
     <html lang="en">

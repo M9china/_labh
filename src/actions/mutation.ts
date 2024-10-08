@@ -1,7 +1,5 @@
-// app/actions/addToCart.ts
 'use server';
-
-import { auth, db } from '@/lib'; // Import the Prisma client
+import { auth, db } from '@/lib';
 
 export async function addToCart(productId: string, quantity: number) {
   // Authenticate the user

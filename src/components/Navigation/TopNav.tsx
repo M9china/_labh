@@ -2,16 +2,25 @@
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-} from "@headlessui/react";
+import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import {useState } from "react";
+import { useEffect, useState } from "react";
 import { signOut } from "next-auth/react";
-export const TopNav = ({user}: any) => {
+import { getCart } from "@/actions";
+
+export const  TopNav = ({ user }: any) => {
   const [open, setOpen] = useState(false);
+  const [count, setCount] = useState<any>([]);
+
+  useEffect(() => {
+    const getCount = async function(){
+      const itemsCount = await getCart();
+      setCount(itemsCount)
+
+    }
+    getCount();
+
+  },[])
 
   const handleAuth = () => {
     return signOut({ callbackUrl: "/" });
@@ -95,7 +104,7 @@ export const TopNav = ({user}: any) => {
 
             <div className="ml-auto flex items-center">
               <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-              {user ? (
+                {user ? (
                   <Link
                     href="/"
                     onClick={handleAuth}
@@ -120,8 +129,23 @@ export const TopNav = ({user}: any) => {
                 </Link>
               </div>
 
-              {/* Search */}
-              <div className="flex lg:ml-6">
+              <div className="flex lg:ml-6 relative ml-4">
+                <Link href="/cart" className="group -m-2 flex items-center p-2">
+                  <ShoppingBagIcon
+                    aria-hidden="true"
+                    className="h-5 w-5 flex-shrink-0 text-black font-semibold group-hover:text-gray-500"
+                  />
+                  <span className="sr-only">items in cart, view bag</span>
+                </Link>
+              </div>
+              {count?.items?.length >= 0 && (
+                <div className="bg-blue-600 sm:hidden w-4 flex items-center justify-center h-4 -mt-5 ml-5 rounded-full absolute">
+                  <p className="text-sm">{count.items.length}</p>
+                </div>
+              )}
+
+              {/* Cart */}
+              <div className="ml-4 flow-root lg:ml-6">
                 <Link
                   href="/wishlist"
                   className="p-2 text-black text-sm font-semibold"
@@ -143,17 +167,6 @@ export const TopNav = ({user}: any) => {
                   </svg>
                 </Link>
               </div>
-
-              {/* Cart */}
-              <div className="ml-4 flow-root lg:ml-6">
-                <Link href="/cart" className="group -m-2 flex items-center p-2">
-                  <ShoppingBagIcon
-                    aria-hidden="true"
-                    className="h-6 w-6 flex-shrink-0 text-black font-semibold group-hover:text-gray-500"
-                  />
-                  <span className="sr-only">items in cart, view bag</span>
-                </Link>
-              </div>
               <button
                 type="button"
                 onClick={() => setOpen(true)}
@@ -169,4 +182,4 @@ export const TopNav = ({user}: any) => {
       </nav>
     </header>
   );
-}
+};
