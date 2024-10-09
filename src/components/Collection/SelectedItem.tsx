@@ -84,7 +84,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
         <div className="bg-blue-600 text-white rounded flex justify-center mt-5">
           <button
             onClick={handleAddToCart}
-            className="font-semibold rounded px-4 py-2 flex space-x-1 items-center"
+            className="font-semibold rounded px-4 py-3 flex space-x-1 items-center"
           >
             <span>Add to cart</span>
             <svg

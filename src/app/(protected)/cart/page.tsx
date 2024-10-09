@@ -1,8 +1,10 @@
 import { CartComponent } from "@/components";
 
-export default function Cart() {
+async  function Cart() {
 
     return(
         <CartComponent/>
     )
 }
+
+export default Cart;

@@ -35,8 +35,11 @@ export const allItems = {
     { productId: 'bennies', name: "Bennies", price: "", image: "/labh (4).jpeg" },
   ],
   tees: [
-    { productId: 'basic-tee', name: "Basic Tee", price: "", image: "/" },
-    { productId: 'graphic-tee', name: "Graphic Tee", price: "", image: "/" },
+    { productId: 'graphic-tee#1', name: "Basic Tee", price: "", image: "/labh (22).jpeg" },
+    { productId: 'graphic-tee#1', name: "Graphic Tee", price: "", image: "/labh (23).jpeg" },
+    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "", image: "/labh (24).jpeg" },
+    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "", image: "/labh (25).jpeg" },
+
   ],
   classic: [
     { productId: 'classic-hoodie', name: "Classic Hoodie", price: "", image: "/" }
