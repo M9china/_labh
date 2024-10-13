@@ -28,8 +28,12 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
       setCart.mutate({
           productId: item.productId,
           quantity: 1 
-      });
-      setIsAdded(true);
+      },{
+        onSuccess: () => {
+            setIsAdded(true);
+        }
+    });
+      
   };
 
   return (
