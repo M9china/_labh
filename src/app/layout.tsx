@@ -5,6 +5,7 @@ import { Footer, TopNav } from "@/components";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/lib";
 import { Session } from "next-auth";
+import { TrpcServerProvider } from "./api/_trpc";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,18 +19,19 @@ async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = (await auth()) as Session;
-  
-
+  const url=`${process.env.AUTH_URL}/api/trpc`
 
   return (
     <html lang="en">
-      <SessionProvider session={session}>
+        <SessionProvider session={session}>
+        <TrpcServerProvider url={url}>
           <body className={inter.className}>
             <TopNav user={session} />
             {children}
             <Footer />
           </body>
-      </SessionProvider>
+          </TrpcServerProvider>
+        </SessionProvider>
     </html>
   );
 }

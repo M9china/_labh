@@ -1,20 +1,19 @@
 'use client';
-
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useParams, useRouter } from "next/navigation";
 import { allItems } from "./FilterStaticData";
 import Image from "next/image";
-import { useSession, signIn } from "next-auth/react";
 import { IItem } from "./FilterDto";
-import { addToCart } from "@/actions";
 import { useState } from "react";
 import { CartNotification } from "../Overlays";
+import useCart from "../Hooks/useCart";
 
 export const SelectedItem: React.FC<IItem> = ({ productId }) => {
   const router = useRouter();
   const { id } = useParams();
-  const { data: session } = useSession();
   const [isAdded, setIsAdded] = useState(false); 
+  const { setCart } = useCart();
+
 
   // Find the item based on the ID from the URL
   const item = Object.values(allItems)
@@ -25,20 +24,16 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
     return <p>Item not found.</p>;
   }
 
-  const handleAddToCart = async () => {
-    if (!session) {
-      signIn(); 
-      return;
-    }
-
-    try {
-      // Call the server action to add the item to the cart
-      await addToCart(item.productId, 1);
-      setIsAdded(true);
-    } catch (error) {
-      console.error('Error adding item to cart:', error);
-      alert('There was an error adding the item to the cart.');
-    }
+  const handleAddToCart = () => {
+      setCart.mutate({
+          productId: item.productId,
+          quantity: 1 
+      },{
+        onSuccess: () => {
+            setIsAdded(true);
+        }
+    });
+      
   };
 
   return (

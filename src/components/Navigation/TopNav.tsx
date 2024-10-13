@@ -4,23 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { signOut } from "next-auth/react";
-import { getCart } from "@/actions";
+import useCart from "../Hooks/useCart";
+
 
 export const  TopNav = ({ user }: any) => {
   const [open, setOpen] = useState(false);
-  const [count, setCount] = useState<any>([]);
-
-  useEffect(() => {
-    const getCount = async function(){
-      const itemsCount = await getCart();
-      setCount(itemsCount)
-
-    }
-    getCount();
-
-  },[])
+  const data = useCart();
 
   const handleAuth = () => {
     return signOut({ callbackUrl: "/" });
@@ -139,9 +130,10 @@ export const  TopNav = ({ user }: any) => {
                   <span className="sr-only">items in cart, view bag</span>
                 </Link>
               </div>
-              {count?.items?.length > 0 && (
+              
+              {data && data.cart?.count > 0 && (
                 <div className="bg-blue-600 sm:hidden w-4 flex items-center justify-center h-4 -mt-5 ml-5 rounded-full absolute">
-                  <p className="text-sm">{count.items.length}</p>
+                  <p className="text-sm">{data.cart?.count}</p>
                 </div>
               )}
 
