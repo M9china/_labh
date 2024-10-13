@@ -16,6 +16,11 @@
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
     "@prisma/client": "^5.19.1",
+    "@tanstack/react-query": "^5.59.3",
+    "@trpc/client": "11.0.0-rc.566",
+    "@trpc/next": "11.0.0-rc.566",
+    "@trpc/react-query": "11.0.0-rc.566",
+    "@trpc/server": "11.0.0-rc.566",
     "googleapis": "^144.0.0",
     "next": "14.2.5",
     "next-auth": "5.0.0-beta.17",
@@ -24,7 +29,9 @@
     "react-dom": "^18.3.1",
     "react-slick": "^0.30.2",
     "sharp": "^0.33.5",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "superjson": "^2.2.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
