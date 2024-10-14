@@ -20,49 +20,42 @@ export const filters = [
 
 export const allItems = {
   all: [
-    { productId: 'basic-tee', name: "Basic Tee", price: "", image: "/labh (6).jpeg" },
-    { productId: 'long-sleeve', name: "Long sleeves", price: "", image: "/labh (20).jpeg" },
-    { productId: 'graphic-tee', name: "Graphic Tee", price: "", image: "/labh (13).jpeg" },
-    { productId: 'confy-sweater', name: "Confy Sweater", price: "", image: "/" },
-    { productId: 'tote-bag', name: "Tote Bag", price: "", image: "/" },
-    { productId: 'bucket-hat', name: "Bucket Hat", price: "", image: "/labh (9).jpeg" },
-    { productId: 'baseball-cap', name: "Baseball Cap", price: "", image: "/" },
-    { productId: 'jogger-pants', name: "Jogger Pants", price: "", image: "/" },
-    { productId: 'cargo-pants', name: "Cargo Pants", price: "", image: "/" },
-    { productId: 'first-range-hoodie', name: "Classic Hoodie", price: "", image: "/" },
-    { productId: 'oversized-hoodie', name: "Oversized Hoodie", price: "", image: "/" },
-    { productId: 'tights', name: "Tights", price: "", image: "/labh (10).jpeg" },
-    { productId: 'bennies', name: "Bennies", price: "", image: "/labh (4).jpeg" },
+    { productId: 'basic-tee', name: "Basic tee", price: "250", image: "/labh (6).jpeg" },
+    { productId: 'long-sleeve', name: "Long sleeves", price: "350", image: "/labh (20).jpeg" },
+    { productId: 'first-range-hoodie', name: "Classic hoodies", price: "450", image: "/labh (30).jpeg" },
+    { productId: 'graphic-tee', name: "Graphic tee", price: "250", image: "/labh (26).jpeg" },
+    { productId: 'bucket-hat', name: "Bucket hat", price: "150", image: "/labh (9).jpeg" },
+    { productId: 'iconic-short-sleeve', name: "New graphic tees", price: "250", image: "/labh (22).jpeg" },
+    { productId: 'pictorial-short-sleeve', name: "Pictorila tee", price: "250", image: "/labh (29).jpeg" },
+    { productId: 'basic-long-sleeve', name: "Basic long sleeve", price: "350", image: "/labh (2).jpeg" },
+
   ],
   tees: [
-    { productId: 'graphic-tee#1', name: "Basic Tee", price: "", image: "/labh (22).jpeg" },
-    { productId: 'graphic-tee#1', name: "Graphic Tee", price: "", image: "/labh (23).jpeg" },
-    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "", image: "/labh (24).jpeg" },
-    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "", image: "/labh (25).jpeg" },
+    { productId: 'graphic-tee#1', name: "Basic Tee", price: "250", image: "/labh (22).jpeg" },
+    { productId: 'graphic-tee#1', name: "Graphic Tee", price: "250", image: "/labh (23).jpeg" },
+    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (24).jpeg" },
+    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (25).jpeg" },
 
   ],
   classic: [
-    { productId: 'classic-hoodie', name: "Classic Hoodie", price: "", image: "/" }
+    { productId: 'classic-hoodie', name: "Classic hoodies", price: "450", image: "/labh (31).jpeg" }
 ],
   sweaters: [
-    { productId: 'comfy-sweater', name: "Comfy Sweater", price: "", image: "/" },
-    { productId: 'wool-sweater', name: "Wool Sweater", price: "", image: "/" },
+    
   ],
   bags: [
-    { productId: 'tote-bag', name: "Tote Bag", price: "", image: "/" }
+    
 ],
   exclusive: [
-    { productId: 'exclusive-hoodie#1', name: "Exclusive ", price: "", image: "/" }
+    { productId: 'exclusive-hoodie#1', name: "Exclusive ", price: "450", image: "/labh (30).jpeg" }
 ],
   headwear: [
-    { productId: 'baseall-cap', name: "Baseball Cap", price: "", image: "/" }
+    
 ],
   pants: [
-    { productId: 'jogger-pants', name: "Jogger Pants", price: "", image: "/" },
-    { productId: 'cargo-pants', name: "Cargo Pants", price: "", image: "/" },
-  ],
+    ],
   hoodies: [
-    { productId: 'relaxed-fit', name: "Relaxed Fit", price: "", image: "/" },
-    { productId: 'over-sized#1', name: "Oversized", price: "", image: "/" },
+    { productId: 'relaxed-fit', name: "Relaxed Fit", price: "450", image: "/labh (30).jpeg" },
+    { productId: 'over-sized#1', name: "Oversized", price: "450", image: "/labh (31).jpeg" },
   ],
 };
