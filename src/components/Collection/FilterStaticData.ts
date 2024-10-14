@@ -25,9 +25,9 @@ export const allItems = {
     { productId: 'first-range-hoodie', name: "Classic hoodies", price: "450", image: "/labh (30).jpeg" },
     { productId: 'graphic-tee', name: "Graphic tee", price: "250", image: "/labh (26).jpeg" },
     { productId: 'bucket-hat', name: "Bucket hat", price: "150", image: "/labh (9).jpeg" },
-    { productId: 'graphic-tee#1', name: "New graphic tees", price: "250", image: "/labh (22).jpeg" },
-    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (29).jpeg" },
-    { productId: 'graphic-tee#2', name: "Basic long sleeve", price: "350", image: "/labh (2).jpeg" },
+    { productId: 'iconic-short-sleeve', name: "New graphic tees", price: "250", image: "/labh (22).jpeg" },
+    { productId: 'pictorial-short-sleeve', name: "Pictorila tee", price: "250", image: "/labh (29).jpeg" },
+    { productId: 'basic-long-sleeve', name: "Basic long sleeve", price: "350", image: "/labh (2).jpeg" },
 
   ],
   tees: [
