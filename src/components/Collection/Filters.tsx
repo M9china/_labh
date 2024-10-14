@@ -51,8 +51,8 @@ export const Filters = () => {
                     filteredItems.map((item) => (
                         <Link href={`/collection/${item.productId}`} key={item.productId} className=''>
                             <Image className='h-[15rem] border w-full object-cover rounded mt-4' alt={`${item.name} image`} src={item.image} width={1500} height={1500}/>
-                            <h2 className='text-md text-black font-medium mt-2 text-lg overflow-ellipsis'>{item.name}</h2>
-                            <p className='text-md text-gray-800 font-medium text-md'>R {item.price}</p>
+                            <h2 className='text-md text-gray-900 mt-2 overflow-ellipsis'>{item.name}</h2>
+                            <p className='text-md text-black'>R {item.price}</p>
                         </Link>
                     ))
                 ) : (
