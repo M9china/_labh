@@ -1,14 +1,13 @@
 export declare interface Item {
   items: IItem[];
-  name: string;
-  price: string;
-  description?: string;
-  image?: string;
 }
 
 export declare interface IItem {
   productId: string;
-  quantity?: number;
+  quantity: number;
+  price: string;
+  name: string;
+  image?: string;
 }
 
 // Define a type for the categories

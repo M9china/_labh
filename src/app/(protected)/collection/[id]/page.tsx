@@ -13,5 +13,5 @@ if (!item) {
 return <p>Item not found.</p>;
 }
 
-  return <SelectedItem productId={item.productId} />;
+  return <SelectedItem quantity={item.quantity} productId={item.productId} price={item.price} name={item.name} />;
 }

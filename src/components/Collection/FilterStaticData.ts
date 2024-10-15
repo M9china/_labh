@@ -20,25 +20,25 @@ export const filters = [
 
 export const allItems = {
   all: [
-    { productId: 'basic-tee', name: "Basic tee", price: "250", image: "/labh (6).jpeg" },
-    { productId: 'long-sleeve', name: "Long sleeves", price: "350", image: "/labh (20).jpeg" },
-    { productId: 'first-range-hoodie', name: "Classic hoodies", price: "450", image: "/labh (30).jpeg" },
-    { productId: 'graphic-tee', name: "Graphic tee", price: "250", image: "/labh (26).jpeg" },
-    { productId: 'bucket-hat', name: "Bucket hat", price: "150", image: "/labh (9).jpeg" },
-    { productId: 'iconic-short-sleeve', name: "New graphic tees", price: "250", image: "/labh (22).jpeg" },
-    { productId: 'pictorial-short-sleeve', name: "Pictorila tee", price: "250", image: "/labh (29).jpeg" },
-    { productId: 'basic-long-sleeve', name: "Basic long sleeve", price: "350", image: "/labh (2).jpeg" },
+    { productId: 'basic-tee', name: "Basic tee", price: "250", image: "/labh (6).jpeg" ,quantity: 1},
+    { productId: 'long-sleeve', name: "Long sleeves", price: "350", image: "/labh (20).jpeg" ,quantity: 1},
+    { productId: 'first-range-hoodie', name: "Classic hoodies", price: "450", image: "/labh (30).jpeg" ,quantity: 1},
+    { productId: 'graphic-tee', name: "Graphic tee", price: "250", image: "/labh (26).jpeg",quantity: 1 },
+    { productId: 'bucket-hat', name: "Bucket hat", price: "150", image: "/labh (9).jpeg" ,quantity: 1},
+    { productId: 'iconic-short-sleeve', name: "New graphic tees", price: "250", image: "/labh (22).jpeg" ,quantity: 1},
+    { productId: 'pictorial-short-sleeve', name: "Pictorila tee", price: "250", image: "/labh (29).jpeg" ,quantity: 1},
+    { productId: 'basic-long-sleeve', name: "Basic long sleeve", price: "350", image: "/labh (2).jpeg" ,quantity: 1},
 
   ],
   tees: [
-    { productId: 'graphic-tee#1', name: "Basic Tee", price: "250", image: "/labh (22).jpeg" },
-    { productId: 'graphic-tee#1', name: "Graphic Tee", price: "250", image: "/labh (23).jpeg" },
-    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (24).jpeg" },
-    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (25).jpeg" },
+    { productId: 'graphic-tee#1', name: "Basic Tee", price: "250", image: "/labh (22).jpeg" ,quantity: 1},
+    { productId: 'graphic-tee#1', name: "Graphic Tee", price: "250", image: "/labh (23).jpeg" ,quantity: 1},
+    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (24).jpeg" ,quantity: 1},
+    { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (25).jpeg" ,quantity: 1},
 
   ],
   classic: [
-    { productId: 'classic-hoodie', name: "Classic hoodies", price: "450", image: "/labh (31).jpeg" }
+    { productId: 'classic-hoodie', name: "Classic hoodies", price: "450", image: "/labh (31).jpeg" ,quantity: 1}
 ],
   sweaters: [
     
@@ -47,7 +47,7 @@ export const allItems = {
     
 ],
   exclusive: [
-    { productId: 'exclusive-hoodie#1', name: "Exclusive ", price: "450", image: "/labh (30).jpeg" }
+    { productId: 'exclusive-hoodie#1', name: "Exclusive ", price: "450", image: "/labh (30).jpeg" ,quantity: 1}
 ],
   headwear: [
     
@@ -55,7 +55,7 @@ export const allItems = {
   pants: [
     ],
   hoodies: [
-    { productId: 'relaxed-fit', name: "Relaxed Fit", price: "450", image: "/labh (30).jpeg" },
-    { productId: 'over-sized#1', name: "Oversized", price: "450", image: "/labh (31).jpeg" },
+    { productId: 'relaxed-fit', name: "Relaxed Fit", price: "450", image: "/labh (30).jpeg" ,quantity: 1},
+    { productId: 'over-sized#1', name: "Oversized", price: "450", image: "/labh (31).jpeg" ,quantity: 1},
   ],
 };

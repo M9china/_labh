@@ -18,14 +18,16 @@ export class UserCartService {
                 },
             },
             select: {
-                productId: true, // Only select the distinct product IDs
+                productId: true,
+                quantity: true,
+                price: true
             },
             distinct: ['productId'], // Ensure distinct products
         });
         // Count the number of distinct products in the cart
         const itemCount = cartItems.length;
            // Return the count of different items
-           return { count: itemCount };
+           return { count: itemCount, bucket: cartItems };
         } catch (error: any) {
             console.log(error);
             return {

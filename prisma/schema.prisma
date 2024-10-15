@@ -73,18 +73,20 @@ model Authenticator {
 }
 
 model Cart {
-  id        Int      @id @default(autoincrement())
-  userId    String      @unique
-  user      User     @relation(fields: [userId], references: [id])
-  items     CartItem[]
+  id     Int        @id @default(autoincrement())
+  userId String     @unique
+  user   User       @relation(fields: [userId], references: [id])
+  items  CartItem[]
 }
 
 model CartItem {
-  id        Int      @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   cartId    Int
-  cart      Cart     @relation(fields: [cartId], references: [id])
+  cart      Cart   @relation(fields: [cartId], references: [id])
   productId String
-  quantity  Int      @default(1)
+  quantity  Int    @default(1)
+  name      String
+  price     String
 
   @@unique([cartId, productId])
 }

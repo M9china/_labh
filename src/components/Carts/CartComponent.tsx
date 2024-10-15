@@ -1,3 +1,4 @@
+'use client'
 import { products } from "../Home";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,14 +8,17 @@ import {
   XMarkIcon as XMarkIconMini,
 } from "@heroicons/react/20/solid";
 import { Checkout } from "./Checkout";
+import useCart from "../Hooks/useCart";
 
 export const CartComponent = () => {
+  const cartList = useCart();
   return (
     <main className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8 bg-white mt-5">
       <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         Cart
       </h1>
-      <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+      <pre className="text-black">{JSON.stringify(cartList.cart?.bucket, null, 3)}</pre>
+      {/* <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
         <section aria-labelledby="cart-heading" className="lg:col-span-7">
           <h2 id="cart-heading" className="sr-only">
             Items in your shopping cart
@@ -122,7 +126,7 @@ export const CartComponent = () => {
             ))}
           </ul>
         </section>
-      </form>
+      </form> */}
       <Checkout/>
     </main>
   );

@@ -27,7 +27,9 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
   const handleAddToCart = () => {
       setCart.mutate({
           productId: item.productId,
-          quantity: 1 
+          quantity: item.quantity,
+          price: item.price,
+          name: item.name
       },{
         onSuccess: () => {
             setIsAdded(true);
