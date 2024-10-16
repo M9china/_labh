@@ -1,5 +1,20 @@
+export enum Size {
+  XS = "XS",
+  S = "S",
+  M = "M",
+  L = "L",
+  XL = "XL",
+}
+
+export enum Color {
+  BLUE = "BLUE",
+  GRAY = "GRAY",
+  BLACK = "BLACK",
+  WHITE = "WHITE",
+}
+
 export declare interface Item {
-  items: IItem[];
+  cart: IItem[];
 }
 
 export declare interface IItem {
@@ -7,7 +22,9 @@ export declare interface IItem {
   quantity: number;
   price: string;
   name: string;
-  image?: string;
+  size: string;
+  color: Color;
+  image?: Size;
 }
 
 // Define a type for the categories

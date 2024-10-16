@@ -20,7 +20,10 @@ export class UserCartService {
             select: {
                 productId: true,
                 quantity: true,
-                price: true
+                price: true,
+                name: true,
+                size: true,
+                color: true
             },
             distinct: ['productId'], // Ensure distinct products
         });
@@ -40,7 +43,7 @@ export class UserCartService {
 
     // Add a product to the user's cart
     static readonly addToCart = async (input: ICartInput) => {
-        const { productId, quantity,context } = input;
+        const { productId, quantity,context, name, price, color, size} = input;
         const userId = context.session?.user?.id;
 
         // Ensure the user is authenticated
@@ -68,6 +71,11 @@ export class UserCartService {
                     cartId: cart.id,
                     productId,
                     quantity,
+                    name,
+                    price,
+                    size,
+                    color
+
                 },
                 update: {
                     quantity: {

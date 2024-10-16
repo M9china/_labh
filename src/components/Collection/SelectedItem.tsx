@@ -1,9 +1,9 @@
-'use client';
+"use client";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useParams, useRouter } from "next/navigation";
 import { allItems } from "./FilterStaticData";
 import Image from "next/image";
-import { IItem } from "./FilterDto";
+import { Color, IItem, Size } from "./FilterDto";
 import { useState } from "react";
 import { CartNotification } from "../Overlays";
 import useCart from "../Hooks/useCart";
@@ -11,9 +11,14 @@ import useCart from "../Hooks/useCart";
 export const SelectedItem: React.FC<IItem> = ({ productId }) => {
   const router = useRouter();
   const { id } = useParams();
-  const [isAdded, setIsAdded] = useState(false); 
+  const [isAdded, setIsAdded] = useState(false);
   const { setCart } = useCart();
+  const availableColors = Object.values(Color);
+  const availableSizes = Object.values(Size);
 
+  // State for selected color and size
+  const [selectedColor, setSelectedColor] = useState<Color | null>(null);
+  const [selectedSize, setSelectedSize] = useState<Size | null>(null);
 
   // Find the item based on the ID from the URL
   const item = Object.values(allItems)
@@ -25,17 +30,26 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
   }
 
   const handleAddToCart = () => {
-      setCart.mutate({
-          productId: item.productId,
-          quantity: item.quantity,
-          price: item.price,
-          name: item.name
-      },{
+    if (!selectedColor || !selectedSize) {
+      alert("Please select both color and size.");
+      return;
+    }
+
+    setCart.mutate(
+      {
+        productId: item.productId,
+        quantity: item.quantity,
+        price: item.price,
+        name: item.name,
+        color: selectedColor, // Use selected color
+        size: selectedSize,   // Use selected size
+      },
+      {
         onSuccess: () => {
-            setIsAdded(true);
-        }
-    });
-      
+          setIsAdded(true);
+        },
+      }
+    );
   };
 
   return (
@@ -50,7 +64,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
       <div className="mt-5">
         <Image
           className="h-[23rem] rounded object-cover"
-          src={item.image as string}
+          src={item.image}
           width={1500}
           height={1500}
           alt={`${item.name} image`}
@@ -61,23 +75,49 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
             <p className="font-semibold mt-2">R {item.price}</p>
           </div>
           <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1"
-              stroke="currentColor"
-              className="size-6"
+            <label htmlFor={`color-${item.productId}`} className="sr-only">
+              Color, {item.name}
+            </label>
+            <select
+              id={`color-${item.productId}`}
+              name={`color-${item.productId}`}
+              className="max-w-full rounded-md py-1.5 bg-white text-left text-base font-medium leading-5 text-gray-700 sm:text-sm"
+              value={selectedColor ?? ""}
+              onChange={(e) => setSelectedColor(e.target.value as Color)}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-              />
-            </svg>
+              <option value="" disabled>
+                Select Color
+              </option>
+              {availableColors.map((color, index) => (
+                <option key={index} value={color}>
+                  {color}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor={`size-${item.productId}`} className="sr-only">
+              Size, {item.name}
+            </label>
+            <select
+              id={`size-${item.productId}`}
+              name={`size-${item.productId}`}
+              className="max-w-full rounded-md py-1.5 bg-white text-left text-base font-medium leading-5 text-gray-700 sm:text-sm"
+              value={selectedSize ?? ""}
+              onChange={(e) => setSelectedSize(e.target.value as Size)}
+            >
+              <option value="" disabled>
+                Select Size
+              </option>
+              {availableSizes.map((size, index) => (
+                <option key={index} value={size}>
+                  {size}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
-        {isAdded && <CartNotification/>}
+        {isAdded && <CartNotification />}
         <div className="bg-blue-600 text-white rounded flex justify-center mt-5">
           <button
             onClick={handleAddToCart}

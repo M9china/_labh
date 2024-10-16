@@ -78,6 +78,8 @@ CREATE TABLE "CartItem" (
     "quantity" INTEGER NOT NULL DEFAULT 1,
     "name" TEXT NOT NULL,
     "price" TEXT NOT NULL,
+    "color" TEXT NOT NULL,
+    "size" TEXT NOT NULL,
 
     CONSTRAINT "CartItem_pkey" PRIMARY KEY ("id")
 );

@@ -1,17 +1,11 @@
 'use client'
-import { allItems, SelectedItem } from "@/components";
+import { SelectedItem } from "@/components";
+import useCart from "@/components/Hooks/useCart";
 import { useParams } from "next/navigation";
 
 
 export default function Item() {
-  const { id } = useParams();
-  const item = Object.values(allItems)
-.flat()
-.find((i) => i.productId === id);
+  const item = useCart();
 
-if (!item) {
-return <p>Item not found.</p>;
-}
-
-  return <SelectedItem quantity={item.quantity} productId={item.productId} price={item.price} name={item.name} />;
+  return <SelectedItem color={item.cart?.bucket.color} size={item.cart?.bucket.size} image={item.cart?.bucket.image} quantity={item.cart?.bucket.quantity} productId={item.cart?.bucket.productId} price={item.cart?.bucket.price} name={item.cart?.bucket.name} />;
 }

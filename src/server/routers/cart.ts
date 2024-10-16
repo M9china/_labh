@@ -13,7 +13,9 @@ export const cartRouter = router({
         productId: input.productId, 
         quantity: input.quantity,
         name: input.name,
-        price: input.price
+        price: input.price,
+        color: input.color,
+        size: input.size
       });
     }),
 

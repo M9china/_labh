@@ -79,6 +79,21 @@ model Cart {
   items  CartItem[]
 }
 
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+}
+
+enum Color {
+  BLUE
+  GRAY
+  BLACK
+  WHITE
+}
+
 model CartItem {
   id        Int    @id @default(autoincrement())
   cartId    Int
@@ -87,6 +102,8 @@ model CartItem {
   quantity  Int    @default(1)
   name      String
   price     String
+  color     Color?
+  size      Size?
 
   @@unique([cartId, productId])
 }

@@ -1,7 +1,5 @@
-'use client'
-import { products } from "../Home";
+"use client";
 import Image from "next/image";
-import Link from "next/link";
 import {
   CheckIcon,
   ClockIcon,
@@ -9,16 +7,18 @@ import {
 } from "@heroicons/react/20/solid";
 import { Checkout } from "./Checkout";
 import useCart from "../Hooks/useCart";
+import { Color, IItem, Item, Size } from "../Collection";
+import Link from "next/link";
 
 export const CartComponent = () => {
   const cartList = useCart();
+
   return (
     <main className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8 bg-white mt-5">
       <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         Cart
       </h1>
-      <pre className="text-black">{JSON.stringify(cartList.cart?.bucket, null, 3)}</pre>
-      {/* <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
+      <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
         <section aria-labelledby="cart-heading" className="lg:col-span-7">
           <h2 id="cart-heading" className="sr-only">
             Items in your shopping cart
@@ -27,15 +27,15 @@ export const CartComponent = () => {
             role="list"
             className="divide-y divide-gray-200 border-b border-t border-gray-200"
           >
-            {products.map((product, productIdx) => (
-              <li key={product.id} className="flex py-6 sm:py-10">
+            {cartList.cart?.bucket.map((product: IItem, productIdx: number) => (
+              <li key={product.productId} className="flex py-6 sm:py-10">
                 <div className="flex-shrink-0">
                   <Image
                     height={1500}
                     width={1500}
-                    alt={product.imageAlt}
-                    src={product.imageSrc}
-                    className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
+                    alt={product.name}
+                    src={product.image || "/"}
+                    className="h-28 w-28 rounded-md object-cover border object-center sm:h-48 sm:w-48"
                   />
                 </div>
 
@@ -44,49 +44,29 @@ export const CartComponent = () => {
                     <div>
                       <div className="flex justify-between">
                         <h3 className="text-sm">
-                          <Link
-                            href={product.href}
-                            className="font-medium text-gray-700 hover:text-gray-800"
-                          >
+                          <h1 className="font-medium text-lg text-gray-700 hover:text-gray-800">
                             {product.name}
-                          </Link>
+                          </h1>
                         </h3>
                       </div>
                       <div className="mt-1 flex text-sm">
-                        <p className="text-gray-500">{product.color}</p>
-                        {product.size ? (
-                          <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
-                            {product.size}
-                          </p>
-                        ) : null}
+                        <p className=" border-gray-200 text-gray-500">
+                          {product.color}
+                        </p>
+
+                        <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
+                          {product.size}
+                        </p>
                       </div>
-                      <p className="mt-1 text-sm font-medium text-gray-900">
-                        {product.price}
+                    </div>
+                    <div className="mt-2">
+                      <p className="text-gray-500">Qty, {product.quantity}</p>
+
+                      <p className="mt-1 text-lg font-medium text-gray-900">
+                        R {product.price}
                       </p>
                     </div>
-
-                    <div className="mt-4 sm:mt-0 sm:pr-9">
-                      <label
-                        htmlFor={`quantity-${productIdx}`}
-                        className="sr-only"
-                      >
-                        Quantity, {product.name}
-                      </label>
-                      <select
-                        id={`quantity-${productIdx}`}
-                        name={`quantity-${productIdx}`}
-                        className="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
-                      >
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={6}>6</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                      </select>
-
+                    <div className="mt-2 sm:mt-0 sm:pr-9">
                       <div className="absolute right-0 top-0">
                         <button
                           type="button"
@@ -101,33 +81,18 @@ export const CartComponent = () => {
                       </div>
                     </div>
                   </div>
-
-                  <p className="mt-4 flex space-x-2 text-sm text-gray-700">
-                    {product.inStock ? (
-                      <CheckIcon
-                        aria-hidden="true"
-                        className="h-5 w-5 flex-shrink-0 text-green-500"
-                      />
-                    ) : (
-                      <ClockIcon
-                        aria-hidden="true"
-                        className="h-5 w-5 flex-shrink-0 text-gray-300"
-                      />
-                    )}
-
-                    <span>
-                      {product.inStock
-                        ? "In stock"
-                        : `Ships in ${product.leadTime}`}
-                    </span>
-                  </p>
                 </div>
               </li>
             ))}
           </ul>
         </section>
-      </form> */}
-      <Checkout/>
+      </form>
+      <div className="text-center mt-5">
+        <Link className="font-semibold text-blue-500" href={"/collection"}>
+          -continue shopping-
+        </Link>
+      </div>
+      <Checkout />
     </main>
   );
 };
