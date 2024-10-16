@@ -62,10 +62,9 @@ export const CartComponent = () => {
                     <div className="mt-2">
                       <p className="text-gray-500">Qty, {product.quantity}</p>
 
-                      <p className="mt-1 text-lg font-medium text-gray-900">
+                      <p className="mt-1 text-md font-medium text-gray-900">
                         R {product.price}
-                      </p>
-                    </div>
+                      </p>                    </div>
                     <div className="mt-2 sm:mt-0 sm:pr-9">
                       <div className="absolute right-0 top-0">
                         <button

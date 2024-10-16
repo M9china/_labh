@@ -16,9 +16,10 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
   const availableColors = Object.values(Color);
   const availableSizes = Object.values(Size);
 
-  // State for selected color and size
+  // State for selected color,quantity and size
   const [selectedColor, setSelectedColor] = useState<Color | null>(null);
   const [selectedSize, setSelectedSize] = useState<Size | null>(null);
+  const [itemsNumber, setItemsNumber] = useState<number>(1);
 
   // Find the item based on the ID from the URL
   const item = Object.values(allItems)
@@ -38,11 +39,11 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
     setCart.mutate(
       {
         productId: item.productId,
-        quantity: item.quantity,
+        quantity: itemsNumber,
         price: item.price,
         name: item.name,
-        color: selectedColor, // Use selected color
-        size: selectedSize,   // Use selected size
+        color: selectedColor,
+        size: selectedSize,
       },
       {
         onSuccess: () => {
@@ -75,6 +76,26 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
             <p className="font-semibold mt-2">R {item.price}</p>
           </div>
           <div>
+            <label htmlFor={`quantity-${item.productId}`} className="sr-only">
+              Quantity, {item.name}
+            </label>
+            <select
+              id={`quantity-${item.productId}`}
+              name={`quantity-${item.productId}`}
+              className="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+              value={itemsNumber}
+              onChange={(e) => setItemsNumber(parseInt(e.target.value))}
+            >
+              {Array.from({ length: 10 }, (_, index) => index + 1).map(
+                (value) => (
+                  <option key={value} value={value}>
+                    {value}
+                  </option>
+                )
+              )}
+            </select>
+          </div>
+          <div>
             <label htmlFor={`color-${item.productId}`} className="sr-only">
               Color, {item.name}
             </label>
@@ -86,7 +107,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
               onChange={(e) => setSelectedColor(e.target.value as Color)}
             >
               <option value="" disabled>
-                Select Color
+                Color
               </option>
               {availableColors.map((color, index) => (
                 <option key={index} value={color}>
@@ -107,7 +128,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
               onChange={(e) => setSelectedSize(e.target.value as Size)}
             >
               <option value="" disabled>
-                Select Size
+                Size
               </option>
               {availableSizes.map((size, index) => (
                 <option key={index} value={size}>
