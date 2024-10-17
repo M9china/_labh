@@ -75,7 +75,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
             <p className="text-gray-700 font-semibold text-lg">{item.name}</p>
           </div>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-2">
           {" "}
           <div>
             <label htmlFor={`color-${item.productId}`} className="sr-only">

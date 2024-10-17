@@ -29,7 +29,7 @@ export const allItems = {
     { productId: 'graphic-tee', name: "Graphic tee", price: "250", image: "/labh (26).jpeg",quantity: 1, color: Color, size: Size },
     { productId: 'bucket-hat', name: "Bucket hat", price: "150", image: "/labh (9).jpeg" ,quantity: 1, color: Color, size: Size},
     { productId: 'iconic-short-sleeve', name: "New graphic tees", price: "250", image: "/labh (22).jpeg" ,quantity: 1, color: Color, size: Size},
-    { productId: 'pictorial-short-sleeve', name: "Pictorila tee", price: "250", image: "/labh (29).jpeg" ,quantity: 1, color: Color, size: Size},
+    { productId: 'pictorial-short-sleeve', name: "Pictorial tee", price: "250", image: "/labh (29).jpeg" ,quantity: 1, color: Color, size: Size},
     { productId: 'basic-long-sleeve', name: "Basic long sleeve", price: "350", image: "/labh (2).jpeg" ,quantity: 1, color: Color, size: Size},
 
   ],
