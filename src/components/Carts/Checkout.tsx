@@ -1,7 +1,11 @@
+'use client'
 import { QuestionMarkCircleIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
+import useCart from '../Hooks/useCart';
 
 export const Checkout = () => {
+
+  const amount = useCart();
 
     return(
         <form>
@@ -16,7 +20,7 @@ export const Checkout = () => {
             <dl className="mt-6 space-y-4">
               <div className="flex items-center justify-between">
                 <dt className="text-sm text-gray-600">Subtotal</dt>
-                <dd className="text-sm font-medium text-gray-900">$99.00</dd>
+                <dd className="text-sm font-medium text-gray-900">R {amount.cart?.totalAmount}</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex items-center text-sm text-gray-600">
@@ -26,7 +30,7 @@ export const Checkout = () => {
                     <QuestionMarkCircleIcon aria-hidden="true" className="h-5 w-5" />
                   </Link>
                 </dt>
-                <dd className="text-sm font-medium text-gray-900">$5.00</dd>
+                <dd className="text-sm font-medium text-gray-900">R {amount.cart?.deliveryFee}</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex text-sm text-gray-600">
@@ -36,11 +40,11 @@ export const Checkout = () => {
                     <QuestionMarkCircleIcon aria-hidden="true" className="h-5 w-5" />
                   </Link>
                 </dt>
-                <dd className="text-sm font-medium text-gray-900">$8.32</dd>
+                <dd className="text-sm font-medium text-gray-900">R {amount.cart?.tax}</dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="text-base font-medium text-gray-900">Order total</dt>
-                <dd className="text-base font-medium text-gray-900">$112.32</dd>
+                <dd className="text-base font-medium text-gray-900">R {amount.cart?.orderTotal}</dd>
               </div>
             </dl>
 

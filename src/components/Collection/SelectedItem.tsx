@@ -126,7 +126,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
           <select
             id={`quantity-${item.productId}`}
             name={`quantity-${item.productId}`}
-            className="max-w-full bg-white py-1.5 text-left leading-5 text-gray-600 sm:text-sm"
+            className="max-w-full bg-white py-1.5 rounded text-left leading-5 text-gray-600 sm:text-sm"
             value={itemsNumber}
             onChange={(e) => setItemsNumber(parseInt(e.target.value))}
           >
