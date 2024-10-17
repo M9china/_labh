@@ -84,7 +84,7 @@ export const CartComponent = () => {
           </ul>
         </section>
       </form>
-      <div className="text-center mt-5">
+      <div className="text-center mt-10">
         <Link className="font-semibold text-blue-500" href={"/collection"}>
           -continue shopping-
         </Link>
