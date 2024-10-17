@@ -72,29 +72,11 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
         />
         <div className="text-black mt-5 flex items-center justify-between">
           <div>
-            <p className="text-gray-700 font-semibold">{item.name}</p>
-            <p className="font-semibold mt-2">R {item.price}</p>
+            <p className="text-gray-700 font-semibold text-lg">{item.name}</p>
           </div>
-          <div>
-            <label htmlFor={`quantity-${item.productId}`} className="sr-only">
-              Quantity, {item.name}
-            </label>
-            <select
-              id={`quantity-${item.productId}`}
-              name={`quantity-${item.productId}`}
-              className="max-w-full rounded-md border border-gray-300 py-1.5 text-left text-base font-medium leading-5 text-gray-700 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
-              value={itemsNumber}
-              onChange={(e) => setItemsNumber(parseInt(e.target.value))}
-            >
-              {Array.from({ length: 10 }, (_, index) => index + 1).map(
-                (value) => (
-                  <option key={value} value={value}>
-                    {value}
-                  </option>
-                )
-              )}
-            </select>
-          </div>
+        </div>
+        <div className="flex items-center justify-between">
+          {" "}
           <div>
             <label htmlFor={`color-${item.productId}`} className="sr-only">
               Color, {item.name}
@@ -102,7 +84,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
             <select
               id={`color-${item.productId}`}
               name={`color-${item.productId}`}
-              className="max-w-full rounded-md py-1.5 bg-white text-left text-base font-medium leading-5 text-gray-700 sm:text-sm"
+              className="max-w-full rounded-md py-1.5 bg-white text-left leading-5 text-gray-600 sm:text-sm"
               value={selectedColor ?? ""}
               onChange={(e) => setSelectedColor(e.target.value as Color)}
             >
@@ -118,12 +100,12 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
           </div>
           <div>
             <label htmlFor={`size-${item.productId}`} className="sr-only">
-              Size, {item.name}
+              Size
             </label>
             <select
               id={`size-${item.productId}`}
               name={`size-${item.productId}`}
-              className="max-w-full rounded-md py-1.5 bg-white text-left text-base font-medium leading-5 text-gray-700 sm:text-sm"
+              className="max-w-full rounded-md py-1.5 bg-white text-left leading-5 text-gray-600 sm:text-sm"
               value={selectedSize ?? ""}
               onChange={(e) => setSelectedSize(e.target.value as Size)}
             >
@@ -137,7 +119,32 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
               ))}
             </select>
           </div>
+          <div>
+          <label htmlFor={`quantity-${item.productId}`} className="text-gray-600 mr-2">
+            Quantity
+          </label>
+          <select
+            id={`quantity-${item.productId}`}
+            name={`quantity-${item.productId}`}
+            className="max-w-full bg-white py-1.5 text-left leading-5 text-gray-600 sm:text-sm"
+            value={itemsNumber}
+            onChange={(e) => setItemsNumber(parseInt(e.target.value))}
+          >
+            {Array.from({ length: 10 }, (_, index) => index + 1).map(
+              (value) => (
+                <option key={value} value={value}>
+                  {value}
+                </option>
+              )
+            )}
+          </select>
         </div>
+        </div>
+        
+        <div className="text-black">
+          <p className="font-semibold mt-2">R {item.price}</p>
+        </div>
+
         {isAdded && <CartNotification />}
         <div className="bg-blue-600 text-white rounded flex justify-center mt-5">
           <button
