@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  app:
+    container_name: labh_container
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://nqobile:labh_dev_pwd@db:5432/labh?schema=public
+    depends_on:
+      - db
+    command: sh -c "npm install && npm run dev"
+
+  db:
+    container_name: postgres_db
+    image: postgres:15
+    environment:
+      POSTGRES_USER: nqobile
+      POSTGRES_PASSWORD: labh_dev_pwd
+      POSTGRES_DB: labh
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres-data:
