@@ -105,5 +105,5 @@ model CartItem {
   color     Color?
   size      Size?
 
-  @@unique([cartId, productId])
+  @@unique([cartId, productId, size, color])
 }

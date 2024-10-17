@@ -25,7 +25,7 @@ export class UserCartService {
                 size: true,
                 color: true
             },
-            distinct: ['productId'], // Ensure distinct products
+            distinct: ['productId', 'size', 'color'], // Ensure distinct products
         });
         // Count the number of distinct products in the cart
         const itemCount = cartItems.length;
@@ -62,9 +62,11 @@ export class UserCartService {
             // Add or update the cart item
             const cartItem = await db.cartItem.upsert({
                 where: {
-                    cartId_productId: {
+                    cartId_productId_size_color: {
                         cartId: cart.id,
                         productId,
+                        size,
+                        color
                     },
                 },
                 create: {
