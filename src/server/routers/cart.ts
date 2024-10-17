@@ -12,6 +12,10 @@ export const cartRouter = router({
         context: ctx, 
         productId: input.productId, 
         quantity: input.quantity,
+        name: input.name,
+        price: input.price,
+        color: input.color,
+        size: input.size
       });
     }),
 

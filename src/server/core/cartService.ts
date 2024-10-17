@@ -18,14 +18,19 @@ export class UserCartService {
                 },
             },
             select: {
-                productId: true, // Only select the distinct product IDs
+                productId: true,
+                quantity: true,
+                price: true,
+                name: true,
+                size: true,
+                color: true
             },
-            distinct: ['productId'], // Ensure distinct products
+            distinct: ['productId', 'size', 'color'], // Ensure distinct products
         });
         // Count the number of distinct products in the cart
         const itemCount = cartItems.length;
            // Return the count of different items
-           return { count: itemCount };
+           return { count: itemCount, bucket: cartItems };
         } catch (error: any) {
             console.log(error);
             return {
@@ -38,7 +43,7 @@ export class UserCartService {
 
     // Add a product to the user's cart
     static readonly addToCart = async (input: ICartInput) => {
-        const { productId, quantity,context } = input;
+        const { productId, quantity,context, name, price, color, size} = input;
         const userId = context.session?.user?.id;
 
         // Ensure the user is authenticated
@@ -57,15 +62,22 @@ export class UserCartService {
             // Add or update the cart item
             const cartItem = await db.cartItem.upsert({
                 where: {
-                    cartId_productId: {
+                    cartId_productId_size_color: {
                         cartId: cart.id,
                         productId,
+                        size,
+                        color
                     },
                 },
                 create: {
                     cartId: cart.id,
                     productId,
                     quantity,
+                    name,
+                    price,
+                    size,
+                    color
+
                 },
                 update: {
                     quantity: {

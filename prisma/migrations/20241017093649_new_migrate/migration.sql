@@ -1,3 +1,9 @@
+-- CreateEnum
+CREATE TYPE "Size" AS ENUM ('XS', 'S', 'M', 'L', 'XL');
+
+-- CreateEnum
+CREATE TYPE "Color" AS ENUM ('BLUE', 'GRAY', 'BLACK', 'WHITE');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
@@ -76,6 +82,10 @@ CREATE TABLE "CartItem" (
     "cartId" INTEGER NOT NULL,
     "productId" TEXT NOT NULL,
     "quantity" INTEGER NOT NULL DEFAULT 1,
+    "name" TEXT NOT NULL,
+    "price" TEXT NOT NULL,
+    "color" "Color",
+    "size" "Size",
 
     CONSTRAINT "CartItem_pkey" PRIMARY KEY ("id")
 );
@@ -93,7 +103,7 @@ CREATE UNIQUE INDEX "Authenticator_credentialID_key" ON "Authenticator"("credent
 CREATE UNIQUE INDEX "Cart_userId_key" ON "Cart"("userId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "CartItem_cartId_productId_key" ON "CartItem"("cartId", "productId");
+CREATE UNIQUE INDEX "CartItem_cartId_productId_size_color_key" ON "CartItem"("cartId", "productId", "size", "color");
 
 -- AddForeignKey
 ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

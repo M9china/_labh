@@ -73,18 +73,37 @@ model Authenticator {
 }
 
 model Cart {
-  id        Int      @id @default(autoincrement())
-  userId    String      @unique
-  user      User     @relation(fields: [userId], references: [id])
-  items     CartItem[]
+  id     Int        @id @default(autoincrement())
+  userId String     @unique
+  user   User       @relation(fields: [userId], references: [id])
+  items  CartItem[]
+}
+
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+}
+
+enum Color {
+  BLUE
+  GRAY
+  BLACK
+  WHITE
 }
 
 model CartItem {
-  id        Int      @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   cartId    Int
-  cart      Cart     @relation(fields: [cartId], references: [id])
+  cart      Cart   @relation(fields: [cartId], references: [id])
   productId String
-  quantity  Int      @default(1)
+  quantity  Int    @default(1)
+  name      String
+  price     String
+  color     Color?
+  size      Size?
 
-  @@unique([cartId, productId])
+  @@unique([cartId, productId, size, color])
 }
