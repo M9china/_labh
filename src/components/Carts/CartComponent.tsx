@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
 import {
-  CheckIcon,
-  ClockIcon,
+
   XMarkIcon as XMarkIconMini,
 } from "@heroicons/react/20/solid";
 import { Checkout } from "./Checkout";
 import useCart from "../Hooks/useCart";
-import { Color, IItem, Item, Size } from "../Collection";
+import { IItem } from "../Collection";
 import Link from "next/link";
 
 export const CartComponent = () => {
@@ -38,7 +37,6 @@ export const CartComponent = () => {
                     className="h-28 w-28 rounded-md object-cover border object-center sm:h-48 sm:w-48"
                   />
                 </div>
-
                 <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
                   <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
                     <div>
