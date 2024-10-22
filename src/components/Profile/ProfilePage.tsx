@@ -8,7 +8,7 @@ export const ProfilePage: React.FC<IProfile> = ({ image, name, email }) => {
   const router = useRouter();
 
   return (
-    <div className="pt-[5rem] bg-white text-black px-4">
+    <div className="pt-[5rem] sm:pt-[7rem] bg-white text-black px-4">
       <button
         onClick={() => router.push("/collection")}
         className="flex rounded text-black cursor-pointer items-center"
