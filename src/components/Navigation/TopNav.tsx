@@ -8,8 +8,7 @@ import { useState } from "react";
 import { signOut } from "next-auth/react";
 import useCart from "../Hooks/useCart";
 
-
-export const  TopNav = ({ user }: any) => {
+export const TopNav = ({ user }: any) => {
   const [open, setOpen] = useState(false);
   const data = useCart();
 
@@ -99,14 +98,14 @@ export const  TopNav = ({ user }: any) => {
                   <Link
                     href="/"
                     onClick={handleAuth}
-                    className="-m-2 block p-2 font-medium text-gray-900"
+                    className="-m-2 block p-2 font-semibold text-black"
                   >
                     Sign Out
                   </Link>
                 ) : (
                   <Link
                     href="/api/auth/signin"
-                    className="-m-2 block p-2 font-medium text-gray-900"
+                    className="-m-2 block p-2 font-semibold text-black"
                   >
                     Sign in
                   </Link>
@@ -114,60 +113,60 @@ export const  TopNav = ({ user }: any) => {
                 <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                 <Link
                   href="/profile"
-                  className="text-md font-medium text-gray-900 hover:text-gray-800"
+                  className="text-md font-semibold text-black"
                 >
                   Profile
                 </Link>
               </div>
 
-              <div className='flex items-center space-x-4'>
-              <div className="lg:ml-6 relative">
-                <Link href="/cart" >
-                  <ShoppingBagIcon
-                    aria-hidden="true"
-                    className="h-6 w-6 flex-shrink-0 text-black font-semibold group-hover:text-gray-500"
-                  />
-                  <span className="sr-only">items in cart, view bag</span>
-                </Link>
-              </div>
-              
-              {data && data.cart?.count > 0 && (
-                <div className="bg-blue-600 sm:hidden w-4 flex items-center justify-center h-4 -mt-5 ml-5 rounded-full absolute">
-                  <p className="text-sm">{data.cart?.count}</p>
-                </div>
-              )}
-
-              {/* Cart */}
-              <div className=" lg:ml-6">
-                <Link
-                  href="/wishlist"
-                  className=" text-black text-sm font-semibold"
-                >
-                  <span className="sr-only">Wish list</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="h-6 w-6 font-semibold text-black"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              <div className="flex items-center space-x-4">
+                <div className="lg:ml-6 relative">
+                  <Link href="/cart">
+                    <ShoppingBagIcon
+                      aria-hidden="true"
+                      className="h-6 w-6 flex-shrink-0 text-black font-semibold group-hover:text-gray-500"
                     />
-                  </svg>
-                </Link>
-              </div>
-              <button
-                type="button"
-                onClick={() => setOpen(true)}
-                className="relative block sm:hidden rounded-md bg-white  font-semibold text-black lg:hidden"
-              >
-                <span className="sr-only">Open menu</span>
-                <Bars3Icon aria-hidden="true" className="h-7 w-7" />
-              </button>
+                    <span className="sr-only">items in cart, view bag</span>
+                  </Link>
+                </div>
+
+                {data && data.cart?.count > 0 && (
+                  <div className="bg-blue-600 sm:mr-5 w-4 flex items-center justify-center h-4 -mt-5 ml-5 rounded-full absolute">
+                    <p className="text-sm">{data.cart?.count}</p>
+                  </div>
+                )}
+
+                {/* Cart */}
+                <div className=" lg:ml-6">
+                  <Link
+                    href="/wishlist"
+                    className=" text-black text-sm font-semibold"
+                  >
+                    <span className="sr-only">Wish list</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      className="h-6 w-6 font-semibold text-black"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                      />
+                    </svg>
+                  </Link>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setOpen(true)}
+                  className="relative block sm:hidden rounded-md bg-white  font-semibold text-black lg:hidden"
+                >
+                  <span className="sr-only">Open menu</span>
+                  <Bars3Icon aria-hidden="true" className="h-7 w-7" />
+                </button>
               </div>
             </div>
           </div>

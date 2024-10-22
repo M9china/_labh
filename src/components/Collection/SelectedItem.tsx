@@ -62,7 +62,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
         <ArrowLeftIcon className="h-4 w-4 font-semibold mr-2" />
         <span className="text-md mr-4 font-semibold">Collection</span>
       </button>
-      <div className="mt-5 sm:grid grid-cols-2">
+      <div className="mt-5 sm:grid grid-cols-2 gap-8">
         <Image
           className="h-[23rem]  rounded object-cover"
           src={item.image}
@@ -71,6 +71,9 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
           alt={`${item.name} image`}
         />
         <div className="sm:col-span-1">
+          <div className="text-black">
+            <p className="font-semibold mt-2">R {item.price}</p>
+          </div>
           <div className="text-black mt-5 flex items-center justify-between">
             <div>
               <p className="text-gray-700 font-semibold text-lg">{item.name}</p>
@@ -144,10 +147,6 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
               </select>
             </div>
           </div>
-        </div>
-
-        <div className="text-black">
-          <p className="font-semibold mt-2">R {item.price}</p>
         </div>
 
         {isAdded && <CartNotification />}

@@ -11,7 +11,7 @@ export const CartComponent = () => {
   const cartList = useCart();
 
   return (
-    <main className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8 bg-white mt-5">
+    <main className=" max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-full  bg-white mt-5">
       {cartList.cart?.bucket.length === 0 ? (
         <CartPlaceholder />
       ) : (
@@ -36,7 +36,7 @@ export const CartComponent = () => {
                           height={1500}
                           width={1500}
                           alt={product.name}
-                          src={product.image || "/"}
+                          src={product.image ?? "/"}
                           className="h-28 w-28 rounded-md object-cover border object-center sm:h-48 sm:w-48"
                         />
                       </div>
@@ -90,7 +90,7 @@ export const CartComponent = () => {
               </ul>
             </section>
           </form>
-          <div className="text-center mt-10">
+          <div className="text-center mt-10 sm:mb-10">
             <Link className="font-semibold text-blue-500" href={"/collection"}>
               -continue shopping-
             </Link>

@@ -34,7 +34,7 @@ export const allItems = {
 
   ],
   tees: [
-    { productId: 'graphic-tee#1', name: "Basic Tee", price: "250", image: "/labh (22).jpeg" ,quantity: 1, color: Color, size: Size},
+    { productId: 'iconic-short-sleeve', name: "New graphic tees", price: "250", image: "/labh (22).jpeg" ,quantity: 1, color: Color, size: Size},
     { productId: 'graphic-tee#1', name: "Graphic Tee", price: "250", image: "/labh (23).jpeg" ,quantity: 1, color: Color, size: Size},
     { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (24).jpeg" ,quantity: 1, color: Color, size: Size},
     { productId: 'graphic-tee#2', name: "Graphic Tee", price: "250", image: "/labh (25).jpeg" ,quantity: 1, color: Color, size: Size},
@@ -59,7 +59,5 @@ export const allItems = {
   pants: [
     ],
   hoodies: [
-    { productId: 'relaxed-fit', name: "Relaxed Fit", price: "450", image: "/labh (30).jpeg" ,quantity: 1, color: Color, size: Size},
-    { productId: 'over-sized#1', name: "Oversized", price: "450", image: "/labh (31).jpeg" ,quantity: 1, color: Color, size: Size},
   ],
 };

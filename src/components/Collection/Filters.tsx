@@ -48,7 +48,7 @@ export const Filters = () => {
           </div>
         ))}
       </div>
-      <main>
+      <main className="flex flex-col items-center">
         {filteredItems.length > 0 ? (
           <div className=" grid grid-cols-2 sm:grid-cols-4 gap-8 sm:pb-10 mt-8 px-4">
             {filteredItems.map((item) => (
@@ -67,7 +67,9 @@ export const Filters = () => {
                 <h2 className="text-md text-gray-900 mt-2 sm:text-xl overflow-ellipsis">
                   {item.name}
                 </h2>
-                <p className="text-md text-black sm:text-lg font-semibold">R {item.price}</p>
+                <p className="text-md text-black sm:text-lg font-semibold">
+                  R {item.price}
+                </p>
               </Link>
             ))}
           </div>
@@ -77,7 +79,7 @@ export const Filters = () => {
             width={1500}
             height={1500}
             alt="merch coming soon"
-            className="mt-12 "
+            className="mt-12 sm:w-[28rem] sm:pb-8 sm:px-8 sm:h-[23rem] sm:rounded object-cover"
           />
         )}
       </main>
