@@ -54,7 +54,7 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
   };
 
   return (
-    <div className="pt-[5rem] bg-white px-4">
+    <div className="pt-[5rem] sm:pt-[7rem] bg-white px-4">
       <button
         onClick={() => router.push("/collection")}
         className="flex rounded text-black space-x-2 cursor-pointer items-center"
@@ -62,85 +62,90 @@ export const SelectedItem: React.FC<IItem> = ({ productId }) => {
         <ArrowLeftIcon className="h-4 w-4 font-semibold mr-2" />
         <span className="text-md mr-4 font-semibold">Collection</span>
       </button>
-      <div className="mt-5">
+      <div className="mt-5 sm:grid grid-cols-2">
         <Image
-          className="h-[23rem] rounded object-cover"
+          className="h-[23rem]  rounded object-cover"
           src={item.image}
           width={1500}
           height={1500}
           alt={`${item.name} image`}
         />
-        <div className="text-black mt-5 flex items-center justify-between">
-          <div>
-            <p className="text-gray-700 font-semibold text-lg">{item.name}</p>
+        <div className="sm:col-span-1">
+          <div className="text-black mt-5 flex items-center justify-between">
+            <div>
+              <p className="text-gray-700 font-semibold text-lg">{item.name}</p>
+            </div>
           </div>
-        </div>
-        <div className="flex items-center justify-between mt-2">
-          {" "}
-          <div>
-            <label htmlFor={`color-${item.productId}`} className="sr-only">
-              Color, {item.name}
-            </label>
-            <select
-              id={`color-${item.productId}`}
-              name={`color-${item.productId}`}
-              className="max-w-full rounded-md py-1.5 bg-white text-left leading-5 text-gray-600 sm:text-sm"
-              value={selectedColor ?? ""}
-              onChange={(e) => setSelectedColor(e.target.value as Color)}
-            >
-              <option value="" disabled>
-                Color
-              </option>
-              {availableColors.map((color, index) => (
-                <option key={index} value={color}>
-                  {color}
+          <div className="flex items-center justify-between mt-2">
+            {" "}
+            <div>
+              <label htmlFor={`color-${item.productId}`} className="sr-only">
+                Color, {item.name}
+              </label>
+              <select
+                id={`color-${item.productId}`}
+                name={`color-${item.productId}`}
+                className="max-w-full rounded-md py-1.5 bg-white text-left leading-5 text-gray-600 sm:text-sm"
+                value={selectedColor ?? ""}
+                onChange={(e) => setSelectedColor(e.target.value as Color)}
+              >
+                <option value="" disabled>
+                  Color
                 </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor={`size-${item.productId}`} className="sr-only">
-              Size
-            </label>
-            <select
-              id={`size-${item.productId}`}
-              name={`size-${item.productId}`}
-              className="max-w-full rounded-md py-1.5 bg-white text-left leading-5 text-gray-600 sm:text-sm"
-              value={selectedSize ?? ""}
-              onChange={(e) => setSelectedSize(e.target.value as Size)}
-            >
-              <option value="" disabled>
+                {availableColors.map((color, index) => (
+                  <option key={index} value={color}>
+                    {color}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor={`size-${item.productId}`} className="sr-only">
                 Size
-              </option>
-              {availableSizes.map((size, index) => (
-                <option key={index} value={size}>
-                  {size}
+              </label>
+              <select
+                id={`size-${item.productId}`}
+                name={`size-${item.productId}`}
+                className="max-w-full rounded-md py-1.5 bg-white text-left leading-5 text-gray-600 sm:text-sm"
+                value={selectedSize ?? ""}
+                onChange={(e) => setSelectedSize(e.target.value as Size)}
+              >
+                <option value="" disabled>
+                  Size
                 </option>
-              ))}
-            </select>
+                {availableSizes.map((size, index) => (
+                  <option key={index} value={size}>
+                    {size}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label
+                htmlFor={`quantity-${item.productId}`}
+                className="text-gray-600 mr-2"
+              >
+                Quantity
+              </label>
+              <select
+                id={`quantity-${item.productId}`}
+                name={`quantity-${item.productId}`}
+                className="max-w-full bg-white py-1.5 rounded text-left leading-5 text-gray-600 sm:text-sm"
+                value={itemsNumber}
+                onChange={(e) => setItemsNumber(parseInt(e.target.value))}
+              >
+                {Array.from({ length: 10 }, (_, index) => index + 1).map(
+                  (value) => (
+                    <option key={value} value={value}>
+                      {value}
+                    </option>
+                  )
+                )}
+              </select>
+            </div>
           </div>
-          <div>
-          <label htmlFor={`quantity-${item.productId}`} className="text-gray-600 mr-2">
-            Quantity
-          </label>
-          <select
-            id={`quantity-${item.productId}`}
-            name={`quantity-${item.productId}`}
-            className="max-w-full bg-white py-1.5 rounded text-left leading-5 text-gray-600 sm:text-sm"
-            value={itemsNumber}
-            onChange={(e) => setItemsNumber(parseInt(e.target.value))}
-          >
-            {Array.from({ length: 10 }, (_, index) => index + 1).map(
-              (value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              )
-            )}
-          </select>
         </div>
-        </div>
-        
+
         <div className="text-black">
           <p className="font-semibold mt-2">R {item.price}</p>
         </div>

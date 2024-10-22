@@ -50,7 +50,7 @@ export const Filters = () => {
       </div>
       <main>
         {filteredItems.length > 0 ? (
-          <div className=" grid grid-cols-2 gap-8 mt-8 px-4">
+          <div className=" grid grid-cols-2 sm:grid-cols-4 gap-8 sm:pb-10 mt-8 px-4">
             {filteredItems.map((item) => (
               <Link
                 href={`/collection/${item.productId}`}
@@ -58,16 +58,16 @@ export const Filters = () => {
                 className=""
               >
                 <Image
-                  className="h-[15rem] border w-full object-cover rounded mt-4"
+                  className="h-[15rem] sm:h-[22rem] border w-full object-cover rounded mt-4"
                   alt={`${item.name} image`}
                   src={item.image}
                   width={1500}
                   height={1500}
                 />
-                <h2 className="text-md text-gray-900 mt-2 overflow-ellipsis">
+                <h2 className="text-md text-gray-900 mt-2 sm:text-xl overflow-ellipsis">
                   {item.name}
                 </h2>
-                <p className="text-md text-black">R {item.price}</p>
+                <p className="text-md text-black sm:text-lg font-semibold">R {item.price}</p>
               </Link>
             ))}
           </div>
