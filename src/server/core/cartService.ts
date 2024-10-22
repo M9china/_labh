@@ -33,7 +33,6 @@ export class UserCartService {
       const itemCount = cartItems.length;
 
       const totalAmount = cartItems.reduce((acc: any, item: any) => {
-        // `item.price` is per item, so we multiply it by `item.quantity`
         return acc + parseFloat(item.price);
       }, 0);
 

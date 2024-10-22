@@ -53,6 +53,7 @@ export const allItems = {
     { productId: 'exclusive-hoodie#1', name: "Exclusive ", price: "450", image: "/labh (30).jpeg" ,quantity: 1, color: Color, size: Size}
 ],
   headwear: [
+    { productId: 'bucket-hat', name: "Bucket hat", price: "150", image: "/labh (9).jpeg" ,quantity: 1, color: Color, size: Size}
     
 ],
   pants: [
