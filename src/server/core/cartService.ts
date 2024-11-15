@@ -29,32 +29,38 @@ export class UserCartService {
         },
         distinct: ["productId", "size", "color"], // Ensure distinct products
       });
+      
       // Count the number of distinct products in the cart
       const itemCount = cartItems.length;
 
-      const totalAmount = cartItems.reduce((acc: any, item: any) => {
+      // Calculate total amount
+      const totalAmount = cartItems.reduce((acc: number, item: any) => {
         return acc + parseFloat(item.price);
       }, 0);
 
+      // Calculate tax and total order
       const tax = totalAmount * this.TAX_RATE;
-
       const deliveryFee = this.DELIVERY_FEE;
-
       const orderTotal = totalAmount + tax + deliveryFee;
-      // Return the count of different items
+
+      // Convert order total to smallest currency unit (cents for USD)
+      const orderTotalInCents = Math.round(orderTotal * 100);
+
+      // Return the response object
       return {
         count: itemCount,
         bucket: cartItems,
         totalAmount: totalAmount.toFixed(2),
         deliveryFee: deliveryFee.toFixed(2),
         tax: tax.toFixed(2),
-        orderTotal: orderTotal.toFixed(2)
+        orderTotal: orderTotal.toFixed(2),
+        orderTotalInCents // For Stripe Payment Intent
       };
     } catch (error: any) {
       console.log(error);
       return {
         success: false,
-        message: `Adding comment failed: ${error.message}`,
+        message: `Fetching cart items failed: ${error.message}`,
       };
     }
   };
