@@ -1,7 +1,6 @@
 'use client'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js';
-// import { convertToSubcurency } from '@/lib';
 import useCart from '@/components/Hooks/useCart';
 import { PayButton } from '@/components';
 
