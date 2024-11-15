@@ -17,7 +17,6 @@ export const PayButton = ({ total }: { total: any }) => {
 
   useEffect(() => {
     const amount = total;
-    console.log("Converted Amount:", amount);
     fetch("/api/payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -65,6 +64,7 @@ export const PayButton = ({ total }: { total: any }) => {
 
   return (
     <form onSubmit={handleSubmit} className="pt-[5rem] bg-white p-2 text-black rounded-md">
+    <h1 className='text-black text-lg font-semibold mb-5'> Card Payments</h1>
       {clientSecret && <PaymentElement />}
 
       {errorMessage && <div>{errorMessage}</div>}
@@ -72,7 +72,7 @@ export const PayButton = ({ total }: { total: any }) => {
         className="bg-black disabled:opacity-50 mt-8 w-full text-white px-2 py-3 rounded-lg disabled:animate-pulse"
         disabled={!stripe || loading}
       >
-        {!loading ? `Pay R${AMOUNTDUE}` : "Processing..."}
+        {!loading ? `Pay R ${AMOUNTDUE}` : "Processing..."}
       </button>
     </form>
   );
