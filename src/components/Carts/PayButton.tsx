@@ -8,7 +8,7 @@ export const PayButton = ({total}: {total: any}) => {
     const elements = useElements();
   
     const [errorMessage, setErrorMessage] = useState<string>();
-    const [clientSecret, setClientSecrete] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export const PayButton = ({total}: {total: any}) => {
             headers: { 'Content-Type': 'application/json',},
             body: JSON.stringify({amount: convertToSubcurency(total)}),
         }).then((res) => res.json())
-        .then((data) => setClientSecrete(data.clientSecret))
+        .then((data) => setClientSecret(data.clientSecret))
     }, [total])
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +42,7 @@ export const PayButton = ({total}: {total: any}) => {
             elements,
             clientSecret,
             confirmParams:{
-                return_url:`http://www.localhost:3000/payment-success?amount=${total}`,
+                return_url:`http://www.localhost:3000/collection`,
             },
         });
 
@@ -55,11 +55,11 @@ export const PayButton = ({total}: {total: any}) => {
     }
 
     if(!clientSecret || !stripe || !elements) {
-        return <div>Loading...</div>;
+        return <div className='text-black'>Loading...</div>;
     }
 
     return(
-        <form onSubmit={handleSubmit} className=' p-2  rounded-md'>
+        <form onSubmit={handleSubmit} className='pt-[5rem] p-2  rounded-md'>
             {clientSecret && <PaymentElement/>}
 
             {errorMessage && <div>{errorMessage}</div>}
