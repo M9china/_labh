@@ -16,7 +16,6 @@ export const PayButton = ({ total }: { total: any }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const amount = total;
     fetch("/api/payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
