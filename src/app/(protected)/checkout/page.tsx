@@ -1,7 +1,7 @@
 'use client'
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from '@stripe/react-stripe-js';
-import { convertToSubcurency } from '@/lib';
+// import { convertToSubcurency } from '@/lib';
 import useCart from '@/components/Hooks/useCart';
 import { PayButton } from '@/components';
 
@@ -14,9 +14,9 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
     const amount = useCart();
 
     return(
-        <main className=''>
-            <Elements options={{mode: 'payment', currency: 'usd', amount: convertToSubcurency(amount.cart?.orderTotal),}} stripe={stripePromise}>
-                <PayButton total={convertToSubcurency(amount.cart?.orderTotal)}/>
+        <main className='bg-white'>
+            <Elements options={{mode: 'payment', currency: 'usd', amount: amount.cart?.orderTotalInCents ?? 10,}} stripe={stripePromise}>
+                <PayButton total={amount.cart?.orderTotalInCents ?? 10}/>
 
             </Elements>
         </main>
