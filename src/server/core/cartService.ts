@@ -46,7 +46,6 @@ export class UserCartService {
       // Convert order total to smallest currency unit (cents for USD)
       const orderTotalInCents = Math.round(orderTotal * 100);
 
-      // Return the response object
       return {
         count: itemCount,
         bucket: cartItems,
@@ -70,7 +69,6 @@ export class UserCartService {
     const { productId, quantity, context, name, price, color, size } = input;
     const userId = context.session?.user?.id;
 
-    // Ensure the user is authenticated
     if (!userId) {
       throw new Error("User not authenticated");
     }
