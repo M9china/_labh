@@ -59,11 +59,8 @@ export const PayButton = ({ total }: { total: any }) => {
   };
 
   if (!clientSecret || !stripe || !elements) {
-    return (
-      <PiSpinnerLight className="animate-spin h-8 w-8 text-[#003B5C]" />
-    );
+    return <PiSpinnerLight className="animate-spin h-8 w-8 text-[#003B5C]" />;
   }
-
 
   return (
     <form
