@@ -5,6 +5,7 @@ import {
   useElements,
   PaymentElement,
 } from "@stripe/react-stripe-js";
+import { PiSpinnerLight } from "react-icons/pi";
 
 export const PayButton = ({ total }: { total: any }) => {
   const stripe = useStripe();
@@ -58,12 +59,18 @@ export const PayButton = ({ total }: { total: any }) => {
   };
 
   if (!clientSecret || !stripe || !elements) {
-    return <div className="text-black">Loading...</div>;
+    return (
+      <PiSpinnerLight className="animate-spin h-8 w-8 text-[#003B5C]" />
+    );
   }
 
+
   return (
-    <form onSubmit={handleSubmit} className="pt-[5rem] bg-white p-2 text-black rounded-md">
-    <h1 className='text-black text-lg font-semibold mb-5'> Card Payments</h1>
+    <form
+      onSubmit={handleSubmit}
+      className="pt-[5rem] bg-white p-2 text-black rounded-md"
+    >
+      <h1 className="text-black text-lg font-semibold mb-5"> Card Payments</h1>
       {clientSecret && <PaymentElement />}
 
       {errorMessage && <div>{errorMessage}</div>}
