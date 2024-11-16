@@ -48,10 +48,10 @@ export const Checkout = () => {
               </div>
             </dl>
 
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col items-center">
               <Link
               href={'/checkout'}
-                className="w-full rounded-md border border-transparent bg-black px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                className="w-full  rounded-md mt-6 border text-center border-transparent bg-black px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-50"
               >
                 Checkout
               </Link>
