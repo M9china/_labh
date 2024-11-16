@@ -7,9 +7,8 @@ const stripe = new Stripe(stripeKey as string, {
 });
 export async function POST(request: NextRequest) {
     try{
-        const {amount} = await request.json();
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: amount,
+            amount: 50,
             currency: 'usd',
             automatic_payment_methods: {enabled: true}, //['card_present'],
         });
