@@ -46,7 +46,7 @@ export const PayButton = ({ total }: { total: any }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `http://www.localhost:3000/collection`,
+        return_url: `https://labh-plum.vercel.app/collection`,
       },
     });
 
